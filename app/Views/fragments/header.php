@@ -30,7 +30,7 @@
                 <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
             </li>
             <li class="nav-item">
-                <a href="<?= base_url() ?>submissao">
+                <a href="<?= base_url() ?>">
                     <img src="<?= base_url() ?>/resources/dist/img/saint-gobain.png" alt="Omorfia Estética Personalizada Logo" class="brand-image img-fluid">
                 </a>
             </li>
