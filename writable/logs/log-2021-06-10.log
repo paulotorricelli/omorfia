@@ -1,0 +1,128 @@
+CRITICAL - 2021-06-10 17:58:58 --> Call to a member function view() on null
+#0 D:\omorfia\system\CodeIgniter.php(928): App\Controllers\Home->index()
+#1 D:\omorfia\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#2 D:\omorfia\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 D:\omorfia\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2021-06-10 17:59:01 --> Call to a member function view() on null
+#0 D:\omorfia\system\CodeIgniter.php(928): App\Controllers\Home->index()
+#1 D:\omorfia\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#2 D:\omorfia\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 D:\omorfia\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2021-06-10 17:59:10 --> Call to a member function view() on null
+#0 D:\omorfia\system\CodeIgniter.php(928): App\Controllers\Home->index()
+#1 D:\omorfia\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#2 D:\omorfia\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 D:\omorfia\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2021-06-10 17:59:19 --> Call to a member function view() on null
+#0 D:\omorfia\system\CodeIgniter.php(928): App\Controllers\Home->index()
+#1 D:\omorfia\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#2 D:\omorfia\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 D:\omorfia\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2021-06-10 18:00:41 --> Argument 2 passed to view() must be of the type array, null given, called in D:\omorfia\app\Controllers\Home.php on line 10
+#0 D:\omorfia\app\Controllers\Home.php(10): view('fragments/heade...', NULL)
+#1 D:\omorfia\system\CodeIgniter.php(928): App\Controllers\Home->index()
+#2 D:\omorfia\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#3 D:\omorfia\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 D:\omorfia\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-06-10 18:00:42 --> Argument 2 passed to view() must be of the type array, null given, called in D:\omorfia\app\Controllers\Home.php on line 10
+#0 D:\omorfia\app\Controllers\Home.php(10): view('fragments/heade...', NULL)
+#1 D:\omorfia\system\CodeIgniter.php(928): App\Controllers\Home->index()
+#2 D:\omorfia\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#3 D:\omorfia\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 D:\omorfia\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-06-10 18:00:53 --> Call to a member function line() on null
+#0 D:\omorfia\system\View\View.php(230): include()
+#1 D:\omorfia\system\View\View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 D:\omorfia\system\Common.php(1271): CodeIgniter\View\View->render('fragments/heade...', Array, true)
+#3 D:\omorfia\app\Controllers\Home.php(10): view('fragments/heade...')
+#4 D:\omorfia\system\CodeIgniter.php(928): App\Controllers\Home->index()
+#5 D:\omorfia\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#6 D:\omorfia\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 D:\omorfia\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-06-10 18:00:53 --> Call to a member function line() on null
+#0 D:\omorfia\system\View\View.php(230): include()
+#1 D:\omorfia\system\View\View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 D:\omorfia\system\Common.php(1271): CodeIgniter\View\View->render('fragments/heade...', Array, true)
+#3 D:\omorfia\app\Controllers\Home.php(10): view('fragments/heade...')
+#4 D:\omorfia\system\CodeIgniter.php(928): App\Controllers\Home->index()
+#5 D:\omorfia\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#6 D:\omorfia\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 D:\omorfia\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-06-10 18:01:00 --> Call to a member function line() on null
+#0 D:\omorfia\system\View\View.php(230): include()
+#1 D:\omorfia\system\View\View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 D:\omorfia\system\Common.php(1271): CodeIgniter\View\View->render('fragments/heade...', Array, true)
+#3 D:\omorfia\app\Controllers\Home.php(10): view('fragments/heade...')
+#4 D:\omorfia\system\CodeIgniter.php(928): App\Controllers\Home->index()
+#5 D:\omorfia\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#6 D:\omorfia\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 D:\omorfia\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-06-10 18:01:04 --> Call to a member function line() on null
+#0 D:\omorfia\system\View\View.php(230): include()
+#1 D:\omorfia\system\View\View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 D:\omorfia\system\Common.php(1271): CodeIgniter\View\View->render('fragments/heade...', Array, true)
+#3 D:\omorfia\app\Controllers\Home.php(10): view('fragments/heade...')
+#4 D:\omorfia\system\CodeIgniter.php(928): App\Controllers\Home->index()
+#5 D:\omorfia\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#6 D:\omorfia\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 D:\omorfia\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-06-10 18:01:44 --> Call to a member function line() on null
+#0 D:\omorfia\system\View\View.php(230): include()
+#1 D:\omorfia\system\View\View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 D:\omorfia\system\Common.php(1271): CodeIgniter\View\View->render('fragments/heade...', Array, true)
+#3 D:\omorfia\app\Controllers\Home.php(10): view('fragments/heade...')
+#4 D:\omorfia\system\CodeIgniter.php(928): App\Controllers\Home->index()
+#5 D:\omorfia\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#6 D:\omorfia\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 D:\omorfia\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-06-10 18:06:14 --> Call to a member function line() on null
+#0 D:\omorfia\system\View\View.php(230): include()
+#1 D:\omorfia\system\View\View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 D:\omorfia\system\Common.php(1271): CodeIgniter\View\View->render('fragments/heade...', Array, true)
+#3 D:\omorfia\app\Controllers\Home.php(10): view('fragments/heade...')
+#4 D:\omorfia\system\CodeIgniter.php(928): App\Controllers\Home->index()
+#5 D:\omorfia\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#6 D:\omorfia\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 D:\omorfia\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-06-10 18:08:41 --> Call to a member function get_csrf_token_name() on null
+#0 D:\omorfia\system\View\View.php(230): include()
+#1 D:\omorfia\system\View\View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 D:\omorfia\system\Common.php(1271): CodeIgniter\View\View->render('fragments/foote...', Array, true)
+#3 D:\omorfia\app\Controllers\Home.php(12): view('fragments/foote...')
+#4 D:\omorfia\system\CodeIgniter.php(928): App\Controllers\Home->index()
+#5 D:\omorfia\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#6 D:\omorfia\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 D:\omorfia\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-06-10 18:08:43 --> Call to a member function get_csrf_token_name() on null
+#0 D:\omorfia\system\View\View.php(230): include()
+#1 D:\omorfia\system\View\View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 D:\omorfia\system\Common.php(1271): CodeIgniter\View\View->render('fragments/foote...', Array, true)
+#3 D:\omorfia\app\Controllers\Home.php(12): view('fragments/foote...')
+#4 D:\omorfia\system\CodeIgniter.php(928): App\Controllers\Home->index()
+#5 D:\omorfia\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#6 D:\omorfia\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 D:\omorfia\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-06-10 18:08:43 --> Call to a member function get_csrf_token_name() on null
+#0 D:\omorfia\system\View\View.php(230): include()
+#1 D:\omorfia\system\View\View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 D:\omorfia\system\Common.php(1271): CodeIgniter\View\View->render('fragments/foote...', Array, true)
+#3 D:\omorfia\app\Controllers\Home.php(12): view('fragments/foote...')
+#4 D:\omorfia\system\CodeIgniter.php(928): App\Controllers\Home->index()
+#5 D:\omorfia\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#6 D:\omorfia\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 D:\omorfia\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}

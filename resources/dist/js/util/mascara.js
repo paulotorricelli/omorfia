@@ -1,0 +1,1 @@
+$(".simple-field-data-mask-reverse").maskMoney({ allowNegative: true, thousands: '.', decimal: ',', affixesStay: false, allowZero: true });

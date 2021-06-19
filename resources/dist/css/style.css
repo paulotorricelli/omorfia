@@ -1,0 +1,9 @@
+@font-face {
+    font-family: University;
+    src: url("font/university-roman-bt.ttf");
+}
+
+.font-logo {
+	font-size: 1em;
+  font-family: "University", sans-serif;
+}
