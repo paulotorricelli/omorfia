@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ERROR - 2021-06-23 22:12:39 --> Error connecting to the database: Access denied for user ''@'localhost' (using password: NO)
 CRITICAL - 2021-06-23 22:12:39 --> Unable to connect to the database.
 Main connection [MySQLi]: Access denied for user ''@'localhost' (using password: NO)
@@ -244,4 +245,145 @@ Main connection [MySQLi]: Access denied for user ''@'localhost' (using password:
 #5 C:\xampp-php74\htdocs\omorfia\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cliente))
 #6 C:\xampp-php74\htdocs\omorfia\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #7 C:\xampp-php74\htdocs\omorfia\index.php(37): CodeIgniter\CodeIgniter->run()
+=======
+CRITICAL - 2021-06-23 21:46:43 --> Call to a member function line() on null
+#0 D:\omorfia\system\View\View.php(230): include()
+#1 D:\omorfia\system\View\View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 D:\omorfia\system\Common.php(1271): CodeIgniter\View\View->render('login/index', Array, true)
+#3 D:\omorfia\app\Controllers\Login.php(9): view('login/index')
+#4 D:\omorfia\system\CodeIgniter.php(928): App\Controllers\Login->index()
+#5 D:\omorfia\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#6 D:\omorfia\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 D:\omorfia\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-06-23 21:48:32 --> Call to a member function line() on null
+#0 D:\omorfia\system\View\View.php(230): include()
+#1 D:\omorfia\system\View\View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 D:\omorfia\system\Common.php(1271): CodeIgniter\View\View->render('login/index', Array, true)
+#3 D:\omorfia\app\Controllers\Login.php(9): view('login/index')
+#4 D:\omorfia\system\CodeIgniter.php(928): App\Controllers\Login->index()
+#5 D:\omorfia\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#6 D:\omorfia\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 D:\omorfia\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-06-23 21:49:36 --> Call to a member function line() on null
+#0 D:\omorfia\system\View\View.php(230): include()
+#1 D:\omorfia\system\View\View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 D:\omorfia\system\Common.php(1271): CodeIgniter\View\View->render('login/index', Array, true)
+#3 D:\omorfia\app\Controllers\Login.php(9): view('login/index')
+#4 D:\omorfia\system\CodeIgniter.php(928): App\Controllers\Login->index()
+#5 D:\omorfia\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#6 D:\omorfia\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 D:\omorfia\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-06-23 21:49:37 --> Call to a member function line() on null
+#0 D:\omorfia\system\View\View.php(230): include()
+#1 D:\omorfia\system\View\View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 D:\omorfia\system\Common.php(1271): CodeIgniter\View\View->render('login/index', Array, true)
+#3 D:\omorfia\app\Controllers\Login.php(9): view('login/index')
+#4 D:\omorfia\system\CodeIgniter.php(928): App\Controllers\Login->index()
+#5 D:\omorfia\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#6 D:\omorfia\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 D:\omorfia\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-06-23 21:49:37 --> Call to a member function line() on null
+#0 D:\omorfia\system\View\View.php(230): include()
+#1 D:\omorfia\system\View\View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 D:\omorfia\system\Common.php(1271): CodeIgniter\View\View->render('login/index', Array, true)
+#3 D:\omorfia\app\Controllers\Login.php(9): view('login/index')
+#4 D:\omorfia\system\CodeIgniter.php(928): App\Controllers\Login->index()
+#5 D:\omorfia\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#6 D:\omorfia\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 D:\omorfia\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-06-23 21:49:37 --> Call to a member function line() on null
+#0 D:\omorfia\system\View\View.php(230): include()
+#1 D:\omorfia\system\View\View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 D:\omorfia\system\Common.php(1271): CodeIgniter\View\View->render('login/index', Array, true)
+#3 D:\omorfia\app\Controllers\Login.php(9): view('login/index')
+#4 D:\omorfia\system\CodeIgniter.php(928): App\Controllers\Login->index()
+#5 D:\omorfia\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#6 D:\omorfia\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 D:\omorfia\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-06-23 21:49:38 --> Call to a member function line() on null
+#0 D:\omorfia\system\View\View.php(230): include()
+#1 D:\omorfia\system\View\View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 D:\omorfia\system\Common.php(1271): CodeIgniter\View\View->render('login/index', Array, true)
+#3 D:\omorfia\app\Controllers\Login.php(9): view('login/index')
+#4 D:\omorfia\system\CodeIgniter.php(928): App\Controllers\Login->index()
+#5 D:\omorfia\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#6 D:\omorfia\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 D:\omorfia\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-06-23 21:50:25 --> Call to a member function line() on null
+#0 D:\omorfia\system\View\View.php(230): include()
+#1 D:\omorfia\system\View\View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 D:\omorfia\system\Common.php(1271): CodeIgniter\View\View->render('login/index', Array, true)
+#3 D:\omorfia\app\Controllers\Login.php(9): view('login/index')
+#4 D:\omorfia\system\CodeIgniter.php(928): App\Controllers\Login->index()
+#5 D:\omorfia\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#6 D:\omorfia\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 D:\omorfia\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-06-23 21:50:26 --> Call to a member function line() on null
+#0 D:\omorfia\system\View\View.php(230): include()
+#1 D:\omorfia\system\View\View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 D:\omorfia\system\Common.php(1271): CodeIgniter\View\View->render('login/index', Array, true)
+#3 D:\omorfia\app\Controllers\Login.php(9): view('login/index')
+#4 D:\omorfia\system\CodeIgniter.php(928): App\Controllers\Login->index()
+#5 D:\omorfia\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#6 D:\omorfia\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 D:\omorfia\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-06-23 21:50:26 --> Call to a member function line() on null
+#0 D:\omorfia\system\View\View.php(230): include()
+#1 D:\omorfia\system\View\View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 D:\omorfia\system\Common.php(1271): CodeIgniter\View\View->render('login/index', Array, true)
+#3 D:\omorfia\app\Controllers\Login.php(9): view('login/index')
+#4 D:\omorfia\system\CodeIgniter.php(928): App\Controllers\Login->index()
+#5 D:\omorfia\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#6 D:\omorfia\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 D:\omorfia\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-06-23 21:50:27 --> Call to a member function line() on null
+#0 D:\omorfia\system\View\View.php(230): include()
+#1 D:\omorfia\system\View\View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 D:\omorfia\system\Common.php(1271): CodeIgniter\View\View->render('login/index', Array, true)
+#3 D:\omorfia\app\Controllers\Login.php(9): view('login/index')
+#4 D:\omorfia\system\CodeIgniter.php(928): App\Controllers\Login->index()
+#5 D:\omorfia\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#6 D:\omorfia\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 D:\omorfia\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-06-23 21:50:27 --> Call to a member function line() on null
+#0 D:\omorfia\system\View\View.php(230): include()
+#1 D:\omorfia\system\View\View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 D:\omorfia\system\Common.php(1271): CodeIgniter\View\View->render('login/index', Array, true)
+#3 D:\omorfia\app\Controllers\Login.php(9): view('login/index')
+#4 D:\omorfia\system\CodeIgniter.php(928): App\Controllers\Login->index()
+#5 D:\omorfia\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#6 D:\omorfia\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 D:\omorfia\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-06-23 21:50:29 --> Call to a member function line() on null
+#0 D:\omorfia\system\View\View.php(230): include()
+#1 D:\omorfia\system\View\View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 D:\omorfia\system\Common.php(1271): CodeIgniter\View\View->render('login/index', Array, true)
+#3 D:\omorfia\app\Controllers\Login.php(9): view('login/index')
+#4 D:\omorfia\system\CodeIgniter.php(928): App\Controllers\Login->index()
+#5 D:\omorfia\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#6 D:\omorfia\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 D:\omorfia\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-06-23 21:50:30 --> Call to a member function line() on null
+#0 D:\omorfia\system\View\View.php(230): include()
+#1 D:\omorfia\system\View\View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 D:\omorfia\system\Common.php(1271): CodeIgniter\View\View->render('login/index', Array, true)
+#3 D:\omorfia\app\Controllers\Login.php(9): view('login/index')
+#4 D:\omorfia\system\CodeIgniter.php(928): App\Controllers\Login->index()
+#5 D:\omorfia\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#6 D:\omorfia\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 D:\omorfia\index.php(37): CodeIgniter\CodeIgniter->run()
+>>>>>>> 67a6a041cf0668548d4875eb5ff297da5cc7a0dd
 #8 {main}
