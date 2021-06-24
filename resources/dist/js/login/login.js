@@ -27,7 +27,7 @@ function logar() {
                         mensagem('danger', 'Erro ao logar, tente novamente.');
                         break;
                     case 'logado':
-                        window.location.href = "submissao";
+                        window.location.href = "/";
                         break;     
                     default:
                         console.log(data);
@@ -46,17 +46,4 @@ $('input').keyup(function(e) {
     if (e.keyCode == 13) {
         logar();
     }
-});
-
-
-$('.select-language').click(function () {
-    let idioma = $(this).val();
-
-    $.ajax({
-        url: diretorio + 'LanguageSwitcher/switchLang/' + idioma,
-        type: 'post',
-        success: function (result) {
-            location.reload();
-        }
-    });
 });
