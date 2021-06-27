@@ -6,13 +6,11 @@ use App\Models\MenuModel;
 
 class Cliente extends BaseController
 {
-
-
 	function index()
 	{
 		$db = db_connect();
 		$MenuModel = new MenuModel($db);
-		$menus = []; //$MenuModel->all();
+		$menus = $MenuModel->all();
 
 		$header = array(
 			"aba" => "Clientes",
@@ -20,7 +18,7 @@ class Cliente extends BaseController
 		);
 
 		echo view('fragments/header', $header);
-      	echo view('cliente/index');
-      	echo view('fragments/footer');
+		echo view('cliente/index');
+		echo view('fragments/footer');
 	}
 }

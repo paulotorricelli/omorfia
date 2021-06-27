@@ -346,7 +346,7 @@ CREATE TABLE `menu` (
   `data_criacao` datetime NOT NULL,
   `data_modificacao` datetime NOT NULL,
   PRIMARY KEY (`id_menu`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -355,6 +355,7 @@ CREATE TABLE `menu` (
 
 LOCK TABLES `menu` WRITE;
 /*!40000 ALTER TABLE `menu` DISABLE KEYS */;
+INSERT INTO `menu` VALUES (1,'Início','inicio','fas fa-home','','lateral-principal','s','2021-06-23 21:45:00','2021-06-23 21:45:00'),(2,'Clientes','cliente','fas fa-users','','lateral-gerenciamento','s','2021-06-23 21:45:00','2021-06-23 21:45:00'),(3,'Funcionários','funcionario','fas fa-id-badge','','lateral-gerenciamento','s','2021-06-23 21:45:00','2021-06-23 21:45:00'),(4,'Produtos','produto','fas fa-cube','','lateral-gerenciamento','s','2021-06-23 21:45:00','2021-06-23 21:45:00'),(5,'Procedimentos','procedimento','fas fa-syringe','','lateral-gerenciamento','s','2021-06-23 21:45:00','2021-06-23 21:45:00'),(6,'Despesas','despesa','fas fa-cash-register','','lateral-gerenciamento','s','2021-06-23 21:45:00','2021-06-23 21:45:00'),(7,'Estoque','estoque','fas fa-box-open','','lateral-gerenciamento','s','2021-06-23 21:45:00','2021-06-23 21:45:00');
 /*!40000 ALTER TABLE `menu` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -663,4 +664,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-13 22:06:03
+-- Dump completed on 2021-06-27 16:20:28
