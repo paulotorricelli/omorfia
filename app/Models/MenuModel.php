@@ -16,12 +16,7 @@ class MenuModel extends Model
     }
 
     function all(){
-		return $this->db->table('menu')->get()->getResult();
+        $query = $this->db->query('SELECT * FROM menu WHERE status = "s"');
+        return $query->getResult();
 	}
-
-    function getMenus()
-    {
-        $builder = $this->db->table("menu");
-        return $builder->get()->getResult();
-    }
 }
