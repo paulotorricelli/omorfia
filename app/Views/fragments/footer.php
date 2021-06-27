@@ -18,7 +18,7 @@
                 <script src="<?= base_url() ?>/resources/plugins/datatables-editor/table-edits.js"></script>
                 <script src="<?= base_url() ?>/resources/plugins/tagsinput/bootstrap-tagsinput.js"></script> 
                 <!-- fim scripts bibliotecas -->     
-                <script src="<?= base_url() ?>/resources/js/common/index.js"></script>
+                <script src="<?= base_url() ?>/resources/dist/js/common/index.js"></script>
             </footer>
         </div>
     </body>
