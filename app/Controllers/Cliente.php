@@ -14,7 +14,7 @@ class Cliente extends BaseController
 		$menus = $MenuModel->all();
 		
 		$header = array(
-			"aba" => "Funcionários",
+			"aba" => "Clientes",
 			"menus" => $menus
 		);
 		
