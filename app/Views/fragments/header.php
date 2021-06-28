@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="<?= base_url() ?>/resources/plugins/tagsinput/bootstrap-tagsinput.css">
     <link rel="stylesheet" href="<?= base_url() ?>/resources/plugins/datatables-editor/editor.bootstrap4.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>/resources/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="<?= base_url() ?>/resources/dist/css/style.css">
 </head>
 
