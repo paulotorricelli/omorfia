@@ -2,16 +2,10 @@
 
 namespace App\Controllers;
 
-use App\Models\loginModel as NLogin;
+use \App\Models\LoginModel;
 
 class Login extends BaseController
 {
-	/*public function __construct()
-	{
-		parent::__construct();
-		$this->load->model('loginModel', 'login');
-	}	*/
-
 	public function index()
 	{
       	return view('login/index');
@@ -19,9 +13,10 @@ class Login extends BaseController
 
 	public function sessao()
 	{		
-		if ($this->input->post()) {
-			$dados = $this->input->post();		
-			$login = new NLogin();       
+		if ($this->request->getMethod() === 'post') {
+			$db = db_connect();
+			$dados = $this->request->getPost();	
+			$login = new LoginModel($db);		 
 			$retorno = $login->login($dados);
 			echo $retorno;
 

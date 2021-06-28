@@ -9,7 +9,7 @@ function logar() {
     // validando campos, cadastrando e retornando mensagens de alerta e sucesso
     if ($user != "" && $senha != "") {
         $.ajax({
-            url: diretorio + 'login/sessao',
+            url: diretorio + '/login/sessao',
             type: 'post',
             data: str,
             error: function(erro) {
@@ -27,7 +27,7 @@ function logar() {
                         mensagem('danger', 'Erro ao logar, tente novamente.');
                         break;
                     case 'logado':
-                        window.location.href = "/";
+                        window.location.href = diretorio + "/";
                         break;     
                     default:
                         console.log(data);

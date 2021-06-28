@@ -1,17 +1,12 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Logout extends CI_Controller {
+namespace App\Controllers;
 
-	public function __construct()
-	{
-		parent::__construct();
-		$this->load->model('LoginModel', 'login');
-	}	
-
+class Logout extends BaseController
+{
 	public function index()
 	{ 
-		$this->login->logout();
-		redirect(base_url(), 'auto');
+		session()->destroy;
+		return redirect()->to('/login');
 	}
 }

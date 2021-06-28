@@ -32,14 +32,10 @@ class Database extends Config
 	 */
 	public $default = [
 		'DSN'      => '',
-		//'port'     => 41890,
-		'port'     => 3306,
-		//'hostname' => 'mysql742.umbler.com',
-		'hostname' => 'localhost',
-		//'username' => 'omorfia',
-		'username' => 'root',
-		//'password' => 'G8?c+uPnqC5',
-		'password' => '',
+		'port'     => 41890,
+		'hostname' => 'mysql742.umbler.com',
+		'username' => 'omorfia',
+		'password' => 'G8?c+uPnqC5',
 		'database' => 'db_omorfia',
 		'DBDriver' => 'MySQLi',
 		'DBPrefix' => '',

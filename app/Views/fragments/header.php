@@ -29,7 +29,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="<?= base_url() ?>">
-                        <img src="<?= base_url() ?>/resources/dist/img/saint-gobain.png" alt="Omorfia Estética Personalizada Logo" class="brand-image img-fluid">
+                        <img src="<?= base_url() ?>/resources/dist/img/omorfia.png" alt="Omorfia Estética Personalizada Logo" class="brand-image img-fluid">
                     </a>
                 </li>
             </ul>
