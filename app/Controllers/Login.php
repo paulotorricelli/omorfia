@@ -8,7 +8,7 @@ class Login extends BaseController
 {
 	public function index()
 	{
-      	return view('login/index');
+      	echo view('login/index');
 	}
 
 	public function sessao()

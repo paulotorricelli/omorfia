@@ -40,7 +40,7 @@
                         <i class="fas fa-cogs"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
-                        <span class="dropdown-header">Olá, Cristina.</span>
+                        <span class="dropdown-header">Olá, <?=session()->get('nome')?>.</span>
                         <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item">
                             <i class="fas fa-user-cog"></i> Perfil
@@ -118,4 +118,4 @@
                 </div>
             </div>
 
-            <input type="hidden" id="usuario_ativo" value="">
+            <input type="hidden" id="usuario_ativo" value=""/>

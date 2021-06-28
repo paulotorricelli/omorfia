@@ -54,13 +54,13 @@ class loginModel extends Model
     //VERIFICA SE JA EXISTE SESSÃO 
     public function verificaLogin()
     {
-        $nome = $this->session->userdata("nome");
-        $nome_sobrenome = $this->session->userdata("nome_sobrenome");
-        $login = $this->session->userdata("login");
-        $email = $this->session->userdata("email");
-        $telefone = $this->session->userdata("telefone");
-        $id_usuario = $this->session->userdata("id_usuario");
-        $estado = $this->session->userdata("estado");
+        $nome = session()->get("nome");
+        $nome_sobrenome = session()->get("nome_sobrenome");
+        $login = session()->get("login");
+        $email = session()->get("email");
+        $telefone = session()->get("telefone");
+        $id_usuario = session()->get("id_usuario");
+        $estado = session()->get("estado");
 
         // VERIFICA SE EXISTE DADOS NA SESSAO
         if ((isset($nome) || !empty($nome)) && (isset($nome_sobrenome) || !empty($nome_sobrenome)) && (isset($login) || !empty($login)) && (isset($email) || !empty($email)) && (isset($telefone) || !empty($telefone)) && (isset($id_usuario) || !empty($id_usuario)))
@@ -84,7 +84,7 @@ class loginModel extends Model
     public function verificaAcesso($menu)
     {
         if ($this->verificaLogin()) {
-            $id_usuario = $this->session->userdata("id_usuario"); //usuario logado
+            $id_usuario = session()->get("id_usuario"); //usuario logado
 
             $this->db->select("m.*");
             $this->db->from("menu as m");
