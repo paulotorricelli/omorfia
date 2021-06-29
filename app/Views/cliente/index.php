@@ -177,12 +177,11 @@
                                     </button>
                                 </div>
                             </div>
-
+                            <div class="modal-footer justify-content-between">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                <button type="button" class="btn btn-primary">Salvar alterações <i class="fas fa-save"></i></button>
+                            </div>
                         </form>
-                    </div>
-                    <div class="modal-footer justify-content-between">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-primary">Salvar alterações <i class="fas fa-save"></i></button>
                     </div>
                 </div>
             </div>
