@@ -6,7 +6,8 @@ class Logout extends BaseController
 {
 	public function index()
 	{ 
-		session()->destroy;
-		return redirect()->to('/login');
+		$items = ['nome','nome_sobrenome','email','telefone','id_usuario','estado'];
+        session()->remove($items);
+        return redirect()->to('/login');
 	}
 }

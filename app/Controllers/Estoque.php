@@ -9,8 +9,8 @@ class Estoque extends BaseController
 	public function index()
 	{
 		$db = db_connect();
-		$MenuModel = new MenuModel($db);
-		$menus = $MenuModel->all();
+		$MenuModel = new MenuModel();
+		$menus = $MenuModel->findAll();
 
 		$header = array(
 			"aba" => "Estoque",

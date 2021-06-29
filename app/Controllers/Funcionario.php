@@ -9,17 +9,16 @@ class Funcionario extends BaseController
 {
 	public function index()
 	{
-		$db = db_connect();
-		$MenuModel = new MenuModel($db);
-		$menus = $MenuModel->all();
+		$MenuModel = new MenuModel();
+		$menus = $MenuModel->findAll();
 		
 		$header = array(
 			"aba" => "Funcionários",
 			"menus" => $menus
 		);
 		
-		$FuncionarioModel = new FuncionarioModel($db);
-		$funcionarios =  $FuncionarioModel->listar();;
+		$FuncionarioModel = new FuncionarioModel();
+		$funcionarios =  $FuncionarioModel->findAll();
 
 		$dados = array(
 			"menus" => $menus,

@@ -56,27 +56,28 @@ class loginModel extends Model
     {
         $nome = session()->get("nome");
         $nome_sobrenome = session()->get("nome_sobrenome");
-        $login = session()->get("login");
         $email = session()->get("email");
         $telefone = session()->get("telefone");
         $id_usuario = session()->get("id_usuario");
         $estado = session()->get("estado");
 
         // VERIFICA SE EXISTE DADOS NA SESSAO
-        if ((isset($nome) || !empty($nome)) && (isset($nome_sobrenome) || !empty($nome_sobrenome)) && (isset($login) || !empty($login)) && (isset($email) || !empty($email)) && (isset($telefone) || !empty($telefone)) && (isset($id_usuario) || !empty($id_usuario)))
+        if ((isset($nome) || !empty($nome)) && (isset($nome_sobrenome) || !empty($nome_sobrenome)) && (isset($email) || !empty($email)) && (isset($telefone) || !empty($telefone)) && (isset($id_usuario) || !empty($id_usuario)))
         {
-            try {
-                if ($estado == 's') {
-                    return TRUE;
-                } else {            
-                   return false;
-                }
-            } catch (Exception $e) {
-                return "erro";
+
+            if ($estado == 's') 
+            {
+                return true;
+            } else {   
+                $items = ['nome','nome_sobrenome','email','telefone','id_usuario','estado'];
+                session()->remove($items);
+                redirect()->to('/login');
             }
+
         } else {
-            $this->logout();
-            redirect(base_url() . "home", "auto");
+            $items = ['nome','nome_sobrenome','email','telefone','id_usuario','estado'];
+            session()->remove($items);
+            redirect()->to('/login');
         }
     }
 
