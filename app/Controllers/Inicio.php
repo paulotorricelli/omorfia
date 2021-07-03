@@ -8,16 +8,23 @@ use App\Controllers\Logout;
 
 class Inicio extends BaseController
 {
+	private $login;
+	private $logout;
+	private $menu; 
+
+	public function __construct()
+	{
+		$this->login = new LoginModel();  
+		$this->menu = new MenuModel();
+		$this->logout = new Logout();     
+	}
+
 	public function index()
 	{	
-		$db = db_connect();
-		$login = new LoginModel($db);
-		$logout = new Logout();
 
-		if ($login->verificaLogin()) 
+		if ($this->login->verificaLogin()) 
 		{
-			$MenuModel = new MenuModel();
-			$menus = $MenuModel->findAll();
+			$menus = $this->menu->findAll();
 
 			$header = array(
 				"aba" => "Início",
@@ -25,10 +32,10 @@ class Inicio extends BaseController
 			);
 
 			echo view('fragments/header', $header);
-			//view('cliente/index', $dados);
+			echo view('inicio/index');
 			echo view('fragments/footer');
 		}else{
-			return $logout->index();
+			return $this->logout->index();
 		}
 	}
 }

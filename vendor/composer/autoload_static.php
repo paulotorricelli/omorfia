@@ -31,6 +31,7 @@ class ComposerStaticInitf50026b73015459f23a70a8a664f891c
         'S' => 
         array (
             'Symfony\\Polyfill\\Ctype\\' => 23,
+            'Sonata\\GoogleAuthenticator\\' => 27,
         ),
         'P' => 
         array (
@@ -48,6 +49,10 @@ class ComposerStaticInitf50026b73015459f23a70a8a664f891c
         'K' => 
         array (
             'Kint\\' => 5,
+        ),
+        'G' => 
+        array (
+            'Google\\Authenticator\\' => 21,
         ),
         'F' => 
         array (
@@ -83,6 +88,10 @@ class ComposerStaticInitf50026b73015459f23a70a8a664f891c
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
         ),
+        'Sonata\\GoogleAuthenticator\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/sonata-project/google-authenticator/src',
+        ),
         'Psr\\Log\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
@@ -114,6 +123,10 @@ class ComposerStaticInitf50026b73015459f23a70a8a664f891c
         'Kint\\' => 
         array (
             0 => __DIR__ . '/..' . '/kint-php/kint/src',
+        ),
+        'Google\\Authenticator\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/sonata-project/google-authenticator/src',
         ),
         'Faker\\' => 
         array (

@@ -2,24 +2,44 @@
 
 namespace App\Controllers;
 
-use \App\Models\LoginModel;
+use App\Models\LoginModel;
+use Sonata\GoogleAuthenticator\GoogleAuthenticator;
 
 class Login extends BaseController
 {
-	public function index()
+	private $login;
+	private $secret;
+	private $auth;
+
+	public function __construct()
 	{
-      	echo view('login/index');
+		$this->login = new LoginModel();   
+		$this->secret = '3DHTQX4GCRKHGS55CJ'; 
+		$this->auth = new GoogleAuthenticator();  
+	}
+
+	public function index(){
+		//$qrcode = $this->auth->getUrl('omorfiaestetica', 'omorfiaestetica.com.br', $this->secret);
+		$qrcode = $this->auth->getUrl('omorfiaestetica', $_SERVER['HTTP_HOST'], $this->secret);
+		$code = $this->auth->getCode($this->secret);
+		$secret = $this->secret;
+
+		$dados = array(
+			'qrcode' => $qrcode,
+			'code' => $code,
+			'secret' => $secret
+		);
+
+      	echo view('login/index', $dados);
 	}
 
 	public function sessao()
-	{		
+	{
 		if ($this->request->getMethod() === 'post') {
-			$db = db_connect();
-			$dados = $this->request->getPost();	
-			$login = new LoginModel($db);		 
-			$retorno = $login->login($dados);
-			echo $retorno;
 
+			$dados = $this->request->getPost();		 
+			$retorno = $this->login->login($dados);
+			echo $retorno;
 		} else {
 			echo "erro";
 		}

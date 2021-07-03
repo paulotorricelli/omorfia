@@ -9,8 +9,8 @@ class loginModel extends Model
 {   
     protected $db;
     
-    public function __construct(ConnectionInterface &$db){
-        $this->db =& $db;
+    public function __construct(){
+        $this->db = db_connect();
     }
     //INICIO - LOGIN
     public function login($dados)
