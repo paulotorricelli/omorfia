@@ -13,6 +13,7 @@ function logar() {
             type: 'post',
             data: str,
             error: function(erro) {
+                console.log(erro);
                 mensagem('danger', 'Erro ao logar, tente novamente! Por favor, verifique.');
             },
             success: function(data) {  

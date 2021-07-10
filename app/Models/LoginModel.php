@@ -4,10 +4,13 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 use CodeIgniter\Database\ConnectionInterface;
+use CodeIgniter\RESTful\ResourceController;
+use CodeIgniter\API\ResponseTrait;
 
 class loginModel extends Model
 {   
     protected $db;
+    protected $format    = 'json';
     
     public function __construct(){
         $this->db = db_connect();
@@ -15,39 +18,60 @@ class loginModel extends Model
     //INICIO - LOGIN
     public function login($dados)
     {
-        $email = trim($dados['inputUsuario']);
-        $senha = trim($dados['inputSenha']);
+        $email =    trim($dados['inputUsuario']);
+        $senha =    trim($dados['inputSenha']);
+		$captcha =  trim($dados['g-recaptcha-response']);
 
-        if ($email != "" and $senha != "") {
-            //try {
-                
-                $query = $this->db->query("SELECT * FROM usuario WHERE email = '$email'");
-                $usuario = $query->getRowArray();
-                //var_dump($usuario);
-                //$senhaDatabase = $usuario->senha;
-                //$this->load->Model("hashModel");
+		if (isset($captcha) && !empty($captcha)) {
 
-                //verificar usuário e senha
-                if (isset($usuario)) {
-                    //$result = $this->hashModel->verificaHash($senha, $senhaDatabase); //verifica se a senha digitada é válida com password_hash
-                    $result = TRUE;
-                    if ($result == TRUE) {
-                        session()->set("id_usuario", $usuario['id_usuario']);
-                        session()->set("nome", ucfirst($usuario['nome']));
-                        session()->set("nome_sobrenome", ucfirst($usuario['nome']) . " " . ucfirst($usuario['sobrenome']));
-                        session()->set("email", $usuario['email']);
-                        session()->set("estado", $usuario['status']);
-                        session()->set("telefone", $usuario['telefone']);
-                        return 'logado';
-                    } else {
-                        return "senha";
+            $url = "https://www.google.com/recaptcha/api/siteverify";
+
+            $data = array('secret' => "6LduiH0bAAAAAFrDpnCRixzpHLarw-XHm6YI2YGP", 'response' => $captcha);
+
+            $options = array(
+                    'http' => array(
+                        'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+                        'method'  => 'POST',
+                        'content' => http_build_query($data)
+                    )
+            );
+            $context  = stream_context_create($options);
+            $results = file_get_contents($url, false, $context);
+            $json = json_decode($results);
+
+            if ($email != "" and $senha != "" and $json->success == true) {
+                //try {
+                    
+                    $query = $this->db->query("SELECT * FROM usuario WHERE email = '$email'");
+                    $usuario = $query->getRowArray();
+                    //var_dump($usuario);
+                    //$senhaDatabase = $usuario->senha;
+                    //$this->load->Model("hashModel");
+
+                    //verificar usuário e senha
+                    if (isset($usuario)) {
+                        //$result = $this->hashModel->verificaHash($senha, $senhaDatabase); //verifica se a senha digitada é válida com password_hash
+                        $result = TRUE;
+                        if ($result == TRUE) {
+                            session()->set("id_usuario", $usuario['id_usuario']);
+                            session()->set("nome", ucfirst($usuario['nome']));
+                            session()->set("nome_sobrenome", ucfirst($usuario['nome']) . " " . ucfirst($usuario['sobrenome']));
+                            session()->set("email", $usuario['email']);
+                            session()->set("estado", $usuario['status']);
+                            session()->set("telefone", $usuario['telefone']);
+                            return 'logado';
+                        } else {
+                            return "senha";
+                        }
                     }
-                }
-            //} catch (Exception $e) {
-            //    return "erro";
-            //}
-        } else {
-            return "campo";
+                //} catch (Exception $e) {
+                //    return "erro";
+                //}
+            } else {
+                return "campo";
+            }
+        }else{
+            return "captcha";    
         }
     }
 

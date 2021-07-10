@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="<?=base_url()?>/resources/dist/css/adminlte.min.css">
   <link rel="stylesheet" href="<?=base_url()?>/resources/dist/css/login.css">
   <link rel="stylesheet" href="<?=base_url()?>/resources/plugins/toastr/toastr.min.css">
+  <script src="https://www.google.com/recaptcha/api.js"></script>
 </head>
 
 <body class="hold-transition login-page bg-login">
@@ -42,6 +43,10 @@
                 <span class="fas fa-unlock-alt">
               </div>
             </div>
+          </div>
+
+          <div class="row justify-content-center mb-3">
+            <div class="col-md-12 g-recaptcha" data-sitekey="6LduiH0bAAAAAKUuOA7-04D3bJV_hkM-SfZMUsku" style="width: 304px !important; max-width: 304px !important; -ms-transform: scale(1.06); -webkit-transform: scale(1.06); transform: scale(1.06); margin: 0px; padding: 0px;"></div>
           </div>
 
           <div class="row">
