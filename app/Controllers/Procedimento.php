@@ -6,11 +6,16 @@ use App\Models\MenuModel;
 
 class Procedimento extends BaseController
 {
+	private $menu; 
+
+	public function __construct()
+	{
+		$this->menu = new MenuModel();   
+	}
+
 	public function index()
 	{
-		$db = db_connect();
-		$MenuModel = new MenuModel();
-		$menus = $MenuModel->findAll();
+		$menus = $this->menu->findAll();
 
 		$header = array(
 			"aba" => "Procedimentos",

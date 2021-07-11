@@ -268,34 +268,3 @@ if (btnSmppUser) {
         }
     });
 }
-
-//insere os comentários da aprovação no select do stagegate
-function comentarios_aprovacao(id) {
-    let url = diretorio + '/stage/listarrespostasaprovacao/' + id;
-    $.ajax({
-        url: url,
-        type: 'POST',
-        data: { id },
-        error: function (result) {
-            //console.log(result);
-            mensagem('danger', 'Falha ao exibir dados. Contate o Adminsitrador do Sistema.');
-        },
-        success: function (result) {
-            //console.log(result);
-            switch (result) {
-                case 'erro':
-                    mensagem('warning', 'Falha ao exibir dados.');
-                    break;
-                default:
-                    let dados = JSON.parse(result);
-                    //$('#opcoes-comentario').remove();
-                    $.each(dados, function (i, item) {
-                        let option = $('<option>');
-                        option.val(item.comentario.toUpperCase()).text(item.comentario.toUpperCase());
-                        $('#opcoes-comentario').append(option);
-                    });
-                break;
-            }
-        }
-    });
-}

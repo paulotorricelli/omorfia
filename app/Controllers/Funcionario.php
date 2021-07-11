@@ -7,18 +7,26 @@ use App\Models\FuncionarioModel;
 
 class Funcionario extends BaseController
 {
+	private $menu; 
+	private $funcionario; 
+
+	public function __construct()
+	{
+		$this->menu = new MenuModel();   
+		$this->funcionario = new FuncionarioModel();
+	}
+
 	public function index()
 	{
-		$MenuModel = new MenuModel();
-		$menus = $MenuModel->findAll();
+		$menus = $this->menu->findAll();
 		
 		$header = array(
 			"aba" => "Funcionários",
 			"menus" => $menus
 		);
 		
-		$FuncionarioModel = new FuncionarioModel();
-		$funcionarios =  $FuncionarioModel->findAll();
+
+		$funcionarios =  $this->funcionario->findAll();
 
 		$dados = array(
 			"menus" => $menus,

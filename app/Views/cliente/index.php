@@ -37,7 +37,7 @@
                                     <div class="form-group row">
                                         <div class="col-sm-12 col-md-8">
                                             <label for="input-email">E-mail: *</label>
-                                            <input class="form-control" type="email" id="input-email" name="email" placeholder="e-mail@dominio.com.br" required>
+                                            <input class="form-control" type="text" id="input-email" name="email" placeholder="e-mail@dominio.com.br" required>
                                         </div>
                                         <div class="col-sm-12 col-md-4">
                                             <label for="input-data-nascimento">Data de Nascimento: *</label>
@@ -47,11 +47,11 @@
                                     <div class="row form-group">
                                         <div class="col-sm-12 col-md-6">
                                             <label for="input-telefone">Telefone Fixo: </label>
-                                            <input class="form-control" type="text" id="input-telefone" name="telefone" placeholder="(DDD) 0000-0000">
+                                            <input class="form-control" type="text" id="input-telefone" name="telefone" placeholder="1100000000">
                                         </div>
                                         <div class="col-sm-12 col-md-6">
                                             <label for="input-celular">Celular: *</label>
-                                            <input class="form-control" type="text" id="input-celular" name="celular" placeholder="(DDD) 90000-0000">
+                                            <input class="form-control" type="text" id="input-celular" name="celular" placeholder="11900000000" required>
                                         </div>
                                     </div>
                                     <div class="form-group row justify-content-end">
