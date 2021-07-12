@@ -23,8 +23,12 @@ class Despesa extends BaseController
 			"menus" => $menus
 		);
 
+		$script = array(
+			"script" => 'despesa'
+		);
+
 		echo view('fragments/header', $header);
       	echo view('despesa/index');
-      	echo view('fragments/footer');
+      	echo view('fragments/footer', $script);
 	}
 }

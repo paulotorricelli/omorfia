@@ -39,9 +39,13 @@ class Perfil extends BaseController
 			"perfil" => $funcionario
 		);
 
+		$script = array(
+			"script" => 'perfil'
+		);
+
 		echo view('fragments/header', $header);
       	echo view('perfil/index', $dados);
-      	echo view('fragments/footer');
+      	echo view('fragments/footer', $script);
 	}
 
 	public function atualizar(){

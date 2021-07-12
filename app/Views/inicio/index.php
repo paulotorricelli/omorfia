@@ -38,7 +38,7 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>44</h3>
+                <h3><?=$clientes?></h3>
 
                 <p>Clientes Cadastrados</p>
               </div>

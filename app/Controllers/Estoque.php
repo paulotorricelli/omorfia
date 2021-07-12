@@ -22,8 +22,12 @@ class Estoque extends BaseController
 			"menus" => $menus
 		);
 
+		$script = array(
+			"script" => 'estoque'
+		);
+
 		echo view('fragments/header', $header);
       	echo view('estoque/index');
-      	echo view('fragments/footer');
+      	echo view('fragments/footer', $script);
 	}
 }

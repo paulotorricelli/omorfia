@@ -1,7 +1,7 @@
-function cadCliente(event) {
+function cadastrar(event) {
     event.preventDefault();
 
-    let id = 'cliente';
+    let id = 'procedimento';
     let form = $('#form-new-' + id);
     let url = form.attr("data-id");
     let data = form.serialize();
@@ -35,10 +35,10 @@ function cadCliente(event) {
 
 }
 
-function updCliente(event) {
+function atualizar(event) {
     event.preventDefault();
 
-    let id = 'cliente';
+    let id = 'procedimento';
     let form = $('#form-edit-' + id);
     let url = form.attr("data-id");
     let data = form.serialize();
@@ -74,5 +74,5 @@ function updCliente(event) {
 
 }
 
-$('.btn-submit').click(cadCliente);
-$('.btn-submit-update').click(updCliente);
+$('.btn-submit').click(cadastrar);
+$('.btn-submit-update').click(atualizar);

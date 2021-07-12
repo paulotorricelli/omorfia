@@ -20,8 +20,8 @@
                 <script src="<?= base_url() ?>/resources/plugins/tagsinput/bootstrap-tagsinput.js"></script> 
                 <!-- fim scripts bibliotecas -->     
                 <script src="<?= base_url() ?>/resources/dist/js/processo/validacao.js"></script>
-                <script src="<?= base_url() ?>/resources/dist/js/common/index.js"></script>
-                <script src="<?= base_url() ?>/resources/dist/js/gerenciamento/cliente/index.js"></script>
+                <script src="<?= base_url() ?>/resources/dist/js/common/index.js"></script> 
+                <script src="<?= base_url() ?>/resources/dist/js/gerenciamento/<?=$script?>/index.js"></script>
             </footer>
         </div>
     </body>

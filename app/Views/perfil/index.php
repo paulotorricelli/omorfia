@@ -8,7 +8,7 @@
             <div class="card card-primary">
 
               <div class="card-body">
-                <form id="form-update-perfil" data-id="perfil/atualizar">
+                <form id="form-edit-perfil" data-id="perfil/atualizar">
                   <div class="row">
                     <div class="col-sm-12">
                       <p>(*) Campos obrigatórios.</p>
@@ -91,7 +91,7 @@
                   </div>
                   <div class="form-group row justify-content-end">
                     <div class="col-sm-12 col-md-4">
-                      <button type="submit" class="btn btn-block btn-success btn-submit"> Atualizar <i class="fas fa-save"></i>
+                      <button type="submit" class="btn btn-block btn-success btn-submit-update"> Atualizar <i class="fas fa-save"></i>
                       </button>
                     </div>
                   </div>
