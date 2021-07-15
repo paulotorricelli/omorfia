@@ -133,7 +133,7 @@
                         <?php foreach ($funcionarios as $item) { ?>
                           <tr>
                             <td class="align-middle">
-                              <a href="#" title="Editar" class="btn btn-outline-primary btn-sm btn-modal" id="<?= $item->id_usuario ?>" data-id="usuario">
+                              <a href="#" title="Editar" class="btn btn-outline-primary btn-sm btn-modal" id="<?= $item->id_usuario ?>" data-id="funcionario">
                                 <i class="fas fa-edit"></i>
                               </a>
                               <a href="https://api.whatsapp.com/send?phone=55<?=$item->celular?>" title="WhatsApp" target="_blank" class="btn btn-outline-success btn-sm">
@@ -144,14 +144,14 @@
                               <div class="input-group justify-content-center mt-1">
                                 <div class="form-group">
                                   <div class="custom-control custom-radio d-inline align-middle">
-                                    <input class="custom-control-input custom-control-input-success radio-status" type="radio" id="ativar-<?= $item->id_usuario ?>" name="<?= $item->id_usuario ?>" data-id="usuario/s/<?= $item->id_usuario ?>" <?= $item->status == 's' ? 'checked' : '' ?>>
+                                    <input class="custom-control-input custom-control-input-success radio-status" type="radio" id="ativar-<?= $item->id_usuario ?>" name="<?= $item->id_usuario ?>" data-id="funcionario/s/<?= $item->id_usuario ?>" <?= $item->status == 's' ? 'checked' : '' ?>>
                                     <label for="ativar-<?= $item->id_usuario ?>" class="custom-control-label">
                                       <!--filtro-->
                                       <?= $item->status == 's' ? '<span class="d-none">s</span>' : '' ?>
                                     </label>
                                   </div>
                                   <div class="custom-control custom-radio d-inline align-middle">
-                                    <input class="custom-control-input custom-control-input-danger radio-status" type="radio" id="inativar-<?= $item->id_usuario ?>" name="<?= $item->id_usuario ?>" data-id="usuario/n/<?= $item->id_usuario ?>" <?= $item->status == 'n' ? 'checked' : '' ?>>
+                                    <input class="custom-control-input custom-control-input-danger radio-status" type="radio" id="inativar-<?= $item->id_usuario ?>" name="<?= $item->id_usuario ?>" data-id="funcionario/n/<?= $item->id_usuario ?>" <?= $item->status == 'n' ? 'checked' : '' ?>>
                                     <label for="inativar-<?= $item->id_usuario ?>" class="custom-control-label"></label>
                                   </div>
                                 </div>
@@ -187,8 +187,8 @@
             </button>
           </div>
           <div class="modal-body">
-            <form id="form-edit-funcionario" data-id="funcionario/cadastrar">
-              <input type="hidden" value="" id="input-id" name="id">
+            <form id="form-edit-funcionario" data-id="funcionario/atualizar">
+              <input type="hidden" value="" id="input-id-modal" name="id_usuario">
               <div class="row">
                 <div class="col-sm-12">
                   <p>(*) Campos obrigatórios.</p>
@@ -239,7 +239,7 @@
               </div>
               <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary">Salvar alterações <i class="fas fa-save"></i></button>
+                <button type="submit" class="btn btn-primary btn-submit-update">Salvar alterações <i class="fas fa-save"></i></button>
               </div>
             </form>
           </div>

@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\MenuModel;
+use App\Models\UsuarioMenuModel;
 
 class Despesa extends BaseController
 {
@@ -10,13 +10,13 @@ class Despesa extends BaseController
 
 	public function __construct()
 	{
-		$this->menu = new MenuModel();   
+		$this->menu = new UsuarioMenuModel(); 
 	}
 
 	public function index()
 	{
 
-		$menus = $this->menu->findAll();
+		$menus = $this->menu->listar();
 
 		$header = array(
 			"aba" => "Despesas",

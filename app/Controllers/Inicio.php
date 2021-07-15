@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\MenuModel;
+use App\Models\UsuarioMenuModel;
 use App\Models\LoginModel;
 use App\Models\ClienteModel;
 use App\Controllers\Logout;
@@ -17,7 +17,7 @@ class Inicio extends BaseController
 	public function __construct()
 	{
 		$this->login = new LoginModel();  
-		$this->menu = new MenuModel();
+		$this->menu = new UsuarioMenuModel();
 		$this->cliente = new ClienteModel();  
 		$this->logout = new Logout();     
 	}
@@ -27,7 +27,7 @@ class Inicio extends BaseController
 
 		if ($this->login->verificaLogin()) 
 		{
-			$menus = $this->menu->findAll();
+			$menus = $this->menu->listar();
 
 			$header = array(
 				"aba" => "Início",

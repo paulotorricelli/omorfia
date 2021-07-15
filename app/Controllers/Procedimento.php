@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\MenuModel;
+use App\Models\UsuarioMenuModel;
 use App\Models\ProcedimentoModel;
 
 class Procedimento extends BaseController
@@ -12,13 +12,13 @@ class Procedimento extends BaseController
 
 	public function __construct()
 	{
-		$this->menu = new MenuModel();   
+		$this->menu = new UsuarioMenuModel();
 		$this->procedimento = new ProcedimentoModel();   
 	}
 
 	public function index()
 	{
-		$menus = $this->menu->findAll();
+		$menus = $this->menu->listar();
 
 		$header = array(
 			"aba" => "Procedimentos",
@@ -77,6 +77,20 @@ class Procedimento extends BaseController
 			$id = $this->request->getVar('id');
 			$procedimento = $this->procedimento->find($id);
 			echo json_encode($procedimento);
+		}
+	}
+
+	public function status()
+	{
+		if($this->request->getMethod() === 'post'){
+			$id = $this->request->getVar('id');
+			$status = $this->request->getVar('status');
+			$data = [
+            	'status' => $status,
+				'data_modificacao'  => date('Y-m-d H:i:s'),
+        	];
+			$this->procedimento->update($id, $data);
+			echo true;
 		}
 	}
 }

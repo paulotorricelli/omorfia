@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\MenuModel;
+use App\Models\UsuarioMenuModel;
 use App\Models\ProdutoModel;
 
 class Produto extends BaseController
@@ -12,13 +12,13 @@ class Produto extends BaseController
 
 	public function __construct()
 	{
-		$this->menu = new MenuModel();  
+		$this->menu = new UsuarioMenuModel();
 		$this->produto = new ProdutoModel();  
 	}
 
 	public function index()
 	{
-		$menus = $this->menu->findAll();
+		$menus = $this->menu->listar();
 
 		$header = array(
 			"aba" => "Produtos",
@@ -52,7 +52,7 @@ class Produto extends BaseController
 				'data_modificacao'  => date('Y-m-d H:i:s'),
         	];
 			$this->produto->insert($data);
-			return true;
+			echo true;
 		}
 	}
 
@@ -67,7 +67,7 @@ class Produto extends BaseController
 				'data_modificacao'  => date('Y-m-d H:i:s'),
         	];
 			$this->produto->update($id_cliente, $data);
-			return true;
+			echo true;
 		}
 	}
 	
@@ -77,6 +77,20 @@ class Produto extends BaseController
 			$id = $this->request->getVar('id');
 			$produto = $this->produto->find($id);
 			echo json_encode($produto);
+		}
+	}
+
+	public function status()
+	{
+		if($this->request->getMethod() === 'post'){
+			$id = $this->request->getVar('id');
+			$status = $this->request->getVar('status');
+			$data = [
+            	'status' => $status,
+				'data_modificacao'  => date('Y-m-d H:i:s'),
+        	];
+			$this->produto->update($id, $data);
+			echo true;
 		}
 	}
 }

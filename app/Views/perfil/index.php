@@ -54,7 +54,7 @@
                       <input class="form-control" type="password" id="input-senha-confirmar" name="confirmar-senha" placeholder="Confirmar senha" required>
                     </div>
                   </div>
-                  <div class="row">
+                  <!--<div class="row">
                     <div class="col-12 text-center">
                       <hr />
                       <p class="h5">Acessos</p>
@@ -88,7 +88,7 @@
                         <?php } ?>
                       </div>
                     </div>
-                  </div>
+                  </div>-->
                   <div class="form-group row justify-content-end">
                     <div class="col-sm-12 col-md-4">
                       <button type="submit" class="btn btn-block btn-success btn-submit-update"> Atualizar <i class="fas fa-save"></i>

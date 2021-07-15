@@ -36,4 +36,10 @@ class Menu extends BaseController
 			echo json_encode('erro');
 		}	
 	}
+
+	public function acesso()
+	{
+    	$menus = $this->usuarioMenu->listar();
+		echo json_encode($menus);
+	}
 }

@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\MenuModel;
+use App\Models\UsuarioMenuModel;
 use App\Models\ClienteModel;
 
 class Cliente extends BaseController
@@ -13,13 +13,13 @@ class Cliente extends BaseController
 	public function __construct()
 	{
 		$this->cliente = new ClienteModel();  
-		$this->menu = new MenuModel();   
+		$this->menu = new UsuarioMenuModel();   
 	}
 
 	public function index()
 	{
 
-		$menus = $this->menu->findAll();
+		$menus = $this->menu->listar();
 		
 		$header = array(
 			"aba" => "Clientes",

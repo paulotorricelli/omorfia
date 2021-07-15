@@ -47,8 +47,8 @@ function preencherCamposModal(typeItem, dados) {
             $("#input-data-criacao").html(dateFormat(dados.data_criacao));
             $("#input-data-modificacao").html(dateFormat(dados.data_modificacao));
             break;
-        case "usuario":
-            $("#input-id-modal").val(dados.id_cliente);
+        case "funcionario":
+            $("#input-id-modal").val(dados.id_usuario);
             $("#input-nome-modal").val(dados.nome);
             $("#input-sobrenome-modal").val(dados.sobrenome);
             $("#input-telefone-modal").val(dados.telefone);
@@ -57,7 +57,23 @@ function preencherCamposModal(typeItem, dados) {
             $("#input-data-nascimento-modal").val(dados.data_nascimento);
             $("#input-data-criacao").html(dateFormat(dados.data_criacao));
             $("#input-data-modificacao").html(dateFormat(dados.data_modificacao));
-            listarMenusUsuario(dados.id_usuario);
+            menus(dados.id_usuario);
+            break;
+        case "procedimento":
+            $("#input-id-modal").val(dados.id_procedimento);
+            $("#input-nome-modal").val(dados.nome);
+            $("#input-valor-venda-modal").val(dados.valor);
+            $("#input-descricao-modal").val(dados.descricao);
+            $("#input-data-criacao").html(dateFormat(dados.data_criacao));
+            $("#input-data-modificacao").html(dateFormat(dados.data_modificacao));
+            break;
+        case "produto":
+            $("#input-id-modal").val(dados.id_produto);
+            $("#input-nome-modal").val(dados.nome);
+            $("#input-valor-venda-modal").val(dados.valor_venda);
+            $("#input-descricao-modal").val(dados.descricao);
+            $("#input-data-criacao").html(dateFormat(dados.data_criacao));
+            $("#input-data-modificacao").html(dateFormat(dados.data_modificacao));
             break;
         default:
             toastr.warning("Falha ao listar os dados no modal.");
@@ -69,7 +85,7 @@ function preencherCamposModal(typeItem, dados) {
 GET DATA + OPEN MODAL
 
 */
-function abreModal(event) {
+function modal(event) {
     event.preventDefault();
 
     const idItem = $(this).attr("id");
@@ -105,14 +121,14 @@ function abreModal(event) {
         },
     });
 }
-$(".btn-modal").click(abreModal);
+$(".btn-modal").click(modal);
 
 /*
 
 LISTAR MENUS DO USUÁRIOS - MODAL EDITAR USUÁRIO
 
 */
-function listarMenusUsuario(id) {
+function menus(id) {
     $.ajax({
         url: diretorio + "/menu/usuario",
         type: "GET",
@@ -153,8 +169,8 @@ function listarMenusUsuario(id) {
                         input[i]
                             .attr("type", "checkbox")
                             .attr("id", id)
-                            .attr("checked", item.id_menu == 1 ? true : false)
-                            .attr("disabled", item.id_menu == 1 ? true : false) //1 - dashboard
+                            .attr("checked", item.id_menu == 1 ? false : false)
+                            .attr("disabled", item.id_menu == 1 ? false : false) //1 - dashboard
                             .attr("name", "menus[]")
                             .val(item.id_menu)
                             .addClass("custom-control-input")
@@ -171,7 +187,7 @@ function listarMenusUsuario(id) {
                         div[i].append(label[i]);
                         divMain.append(div[i]);
                         break;
-                    case "lateral-gerenciar":
+                    case "lateral-gerenciamento":
                         div[i].addClass("custom-control custom-checkbox");
                         input[i]
                             .attr("type", "checkbox")
@@ -200,3 +216,44 @@ function listarMenusUsuario(id) {
         },
     });
 }
+
+/*
+
+ALTERAR STATUS
+
+*/
+function status() {
+    let dados = new Array(...$(this).attr("data-id").split("/"));
+    let radio = $(this);
+    radio.attr("disabled", true);
+
+    if (dados) {
+        let tabela = dados[0];
+        let status = dados[1];
+        let id = dados[2];
+        console.log(tabela);
+        $.ajax({
+            url: diretorio + '/' + tabela + "/status",
+            type: "POST",
+            data: { tabela, status, id },
+            error: function (error) {
+                console.log(error);
+                toastr.error(
+                    "Erro ao alterar status. Contate o Adminsitrador do Sistema."
+                );
+                radio.attr("disabled", false);
+            },
+            success: function (result) {
+                result = result.trim();
+                result
+                    ? toastr.success("Status alterado com sucesso!")
+                    : toastr.warning("Falha ao alterar status.");
+                radio.attr("disabled", false);
+            },
+        });
+    } else {
+        toastr.warning("Falha ao alterar status.");
+        radio.attr("disabled", false);
+    }
+}
+$(".radio-status").click(status);
