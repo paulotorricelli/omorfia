@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 
-use App\Models\MenuModel;
+use App\Models\UsuarioMenuModel;
 use App\Models\FuncionarioModel;
 use App\Controllers\Hash;
 
@@ -18,7 +18,7 @@ class Perfil extends BaseController
 
 	public function __construct()
 	{
-		$this->menu = new MenuModel();
+		$this->menu = new UsuarioMenuModel();
 		$this->funcionario = new FuncionarioModel();   
 		$this->hash = new Hash();   
 	}
@@ -26,22 +26,27 @@ class Perfil extends BaseController
 
 	public function index()
 	{
-		$menus = $this->menu->findAll();
+		$menus = $this->menu->listar();
 		
 		$header = array(
 			"aba" => "Perfil",
 			"menus" => $menus
 		);
-		
-		$funcionario = $this->funcionario->where('id_usuario', '1')->first();
+
+		$id = session()->get("id_usuario");
+		$funcionario = $this->funcionario->where('id_usuario', $id)->first();
 
 		$dados = array(
 			"perfil" => $funcionario
 		);
 
+		$script = array(
+			"script" => 'perfil'
+		);
+
 		echo view('fragments/header', $header);
       	echo view('perfil/index', $dados);
-      	echo view('fragments/footer');
+      	echo view('fragments/footer', $script);
 	}
 
 	public function atualizar(){

@@ -93,6 +93,9 @@
                                                             <a href="#" title="Editar" class="btn btn-outline-primary btn-sm btn-modal" id="<?= $item->id_cliente ?>" data-id="cliente">
                                                                 <i class="fas fa-edit"></i>
                                                             </a>
+                                                            <a href="https://api.whatsapp.com/send?phone=55<?=$item->celular?>" title="WhatsApp" target="_blank" class="btn btn-outline-success btn-sm">
+                                                                <i class="fab fa-whatsapp"></i>
+                                                            </a>
                                                         </td>
                                                         <td class="align-middle"><?= $item->nome ?></td>
                                                         <td class="align-middle"><?= $item->sobrenome ?></td>
@@ -126,8 +129,8 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form id="form-edit-cliente" data-id="cliente/cadastrar">
-                            <input type="hidden" value="" id="input-id" name="id">
+                        <form id="form-edit-cliente" data-id="cliente/atualizar">
+                            <input type="hidden" value="" id="input-id-modal" name="id_cliente">
                             <div class="row">
                                 <div class="col-sm-12">
                                     <p>(*) Campos obrigatórios.</p>
@@ -171,15 +174,14 @@
                                     <input class="form-control" type="text" id="input-celular-modal" name="celular" placeholder="(DDD) 90000-0000">
                                 </div>
                             </div>
-                            <div class="form-group row justify-content-end">
-                                <div class="col-sm-12 col-md-4">
-                                    <button type="submit" class="btn btn-block btn-success btn-submit"> Registrar <i class="fas fa-save"></i>
-                                    </button>
-                                </div>
-                            </div>
+
                             <div class="modal-footer justify-content-between">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                                <button type="button" class="btn btn-primary">Salvar alterações <i class="fas fa-save"></i></button>
+                                <div class="form-group">               
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-block btn-primary btn-submit-update"> Atualizar <i class="fas fa-save"></i></button>
+                                </div>
                             </div>
                         </form>
                     </div>

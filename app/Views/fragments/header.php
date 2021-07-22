@@ -42,7 +42,7 @@
                     <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
                         <span class="dropdown-header">Olá, <?=session()->get('nome')?>.</span>
                         <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
+                        <a href="<?= base_url() ?>/perfil" class="dropdown-item">
                             <i class="fas fa-user-cog"></i> Perfil
                         </a>
                         <a href="#" class="dropdown-item">
