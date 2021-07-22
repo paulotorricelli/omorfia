@@ -4,28 +4,28 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 use CodeIgniter\Database\ConnectionInterface;
-use CodeIgniter\RESTful\ResourceController;
-use CodeIgniter\API\ResponseTrait;
+use App\Controllers\Hash;
 
 class loginModel extends Model
 {   
     protected $db;
-    protected $format    = 'json';
+    protected $hash;
     
     public function __construct(){
         $this->db = db_connect();
+        $this->hash = new Hash();   
     }
+
     //INICIO - LOGIN
     public function login($dados)
     {
         $email =    trim($dados['inputUsuario']);
         $senha =    trim($dados['inputSenha']);
-		$captcha =  trim($dados['g-recaptcha-response']);
+		$captcha =  $dados['g-recaptcha-response'];
 
 		if (isset($captcha) && !empty($captcha)) {
 
-            $url = "https://www.google.com/recaptcha/api/siteverify";
-
+            /*$url = "https://www.google.com/recaptcha/api/siteverify";
             $data = array('secret' => "6LduiH0bAAAAAFrDpnCRixzpHLarw-XHm6YI2YGP", 'response' => $captcha);
 
             $options = array(
@@ -35,38 +35,36 @@ class loginModel extends Model
                         'content' => http_build_query($data)
                     )
             );
-            $context  = stream_context_create($options);
+
+            $context = stream_context_create($options);
             $results = file_get_contents($url, false, $context);
             $json = json_decode($results);
+            $valid = $json->success;
+            */
+            $valid = true;
 
-            if ($email != "" and $senha != "" and $json->success == true) {
-                //try {
-                    
-                    $query = $this->db->query("SELECT * FROM usuario WHERE email = '$email'");
-                    $usuario = $query->getRowArray();
-                    //var_dump($usuario);
-                    //$senhaDatabase = $usuario->senha;
-                    //$this->load->Model("hashModel");
+            //echo $valid;
+            if ($email != "" and $senha != "" and $valid === true) {                   
+                $query = $this->db->query("SELECT * FROM usuario WHERE email = '$email'");
+                $usuario = $query->getRowArray();
+                $senhaDatabase = $usuario['senha'];
 
-                    //verificar usuário e senha
-                    if (isset($usuario)) {
-                        //$result = $this->hashModel->verificaHash($senha, $senhaDatabase); //verifica se a senha digitada é válida com password_hash
-                        $result = TRUE;
-                        if ($result == TRUE) {
-                            session()->set("id_usuario", $usuario['id_usuario']);
-                            session()->set("nome", ucfirst($usuario['nome']));
-                            session()->set("nome_sobrenome", ucfirst($usuario['nome']) . " " . ucfirst($usuario['sobrenome']));
-                            session()->set("email", $usuario['email']);
-                            session()->set("estado", $usuario['status']);
-                            session()->set("telefone", $usuario['telefone']);
-                            return 'logado';
-                        } else {
-                            return "senha";
-                        }
+                //verificar usuário e senha
+                if (isset($usuario)) {
+                    $result = $this->hash->valid($senha, $senhaDatabase); //verifica se a senha digitada é válida com password_hash
+
+                    if ($result == true) {
+                        session()->set("id_usuario", $usuario['id_usuario']);
+                        session()->set("nome", ucfirst($usuario['nome']));
+                        session()->set("nome_sobrenome", ucfirst($usuario['nome']) . " " . ucfirst($usuario['sobrenome']));
+                        session()->set("email", $usuario['email']);
+                        session()->set("estado", $usuario['status']);
+                        session()->set("celular", $usuario['celular']);
+                        return 'logado';
+                    } else {
+                        return "senha";
                     }
-                //} catch (Exception $e) {
-                //    return "erro";
-                //}
+                }
             } else {
                 return "campo";
             }
@@ -81,25 +79,25 @@ class loginModel extends Model
         $nome = session()->get("nome");
         $nome_sobrenome = session()->get("nome_sobrenome");
         $email = session()->get("email");
-        $telefone = session()->get("telefone");
+        $celular = session()->get("celular");
         $id_usuario = session()->get("id_usuario");
         $estado = session()->get("estado");
 
         // VERIFICA SE EXISTE DADOS NA SESSAO
-        if ((isset($nome) || !empty($nome)) && (isset($nome_sobrenome) || !empty($nome_sobrenome)) && (isset($email) || !empty($email)) && (isset($telefone) || !empty($telefone)) && (isset($id_usuario) || !empty($id_usuario)))
+        if ((isset($nome) || !empty($nome)) && (isset($nome_sobrenome) || !empty($nome_sobrenome)) && (isset($email) || !empty($email)) && (isset($celular) || !empty($celular)) && (isset($id_usuario) || !empty($id_usuario)))
         {
 
             if ($estado == 's') 
             {
                 return true;
             } else {   
-                $items = ['nome','nome_sobrenome','email','telefone','id_usuario','estado'];
+                $items = ['nome','nome_sobrenome','email','celular','id_usuario','estado'];
                 session()->remove($items);
                 redirect()->to('/login');
             }
 
         } else {
-            $items = ['nome','nome_sobrenome','email','telefone','id_usuario','estado'];
+            $items = ['nome','nome_sobrenome','email','celular','id_usuario','estado'];
             session()->remove($items);
             redirect()->to('/login');
         }

@@ -3,63 +3,157 @@ $(function () {
     bsCustomFileInput.init();
 });
 
-// GERAL - MODAL //
-//abrir modal
-$(".btn-modal").click(modalOpen);
+/*
 
-function modalOpen() {
+DATE FORMAT
 
-    let tabela = $(this).attr('data-id');
-    let id = $(this).attr('id');
-    let tela = $(this).attr('data-tela');
-
-    if (tela) {
-        meudepartamento(tabela, id);
-    } else {
-        listar(tabela, id);
+*/
+function dateFormat(date) {
+    const dateArray = date.substr(0, 10).split("-");
+    let newDate = "";
+    for (i = 2; i >= 0; i--) {
+        newDate += dateArray[i] + "/";
     }
-    $(".modal").modal("show");
+    return newDate.substr(0, 10);
 }
 
-$('#btn-smpp-visualizar').click(() => $('#lbl-lista-smpp').text($('#btn-smpp-visualizar').text()));
-$('#btn-smpp-gestao').click(() => $('#lbl-lista-smpp').text($('#btn-smpp-gestao').text()));
-$('#btn-smpp-departamento').click(() => $('#lbl-lista-smpp').text($('#btn-smpp-departamento').text()));
-$('#btn-smpp-user').click(() => $('#lbl-lista-smpp').text($('#btn-smpp-user').text()));
+/* 
 
-// GERAL - CADASTRAR //
-//atualizar view quando não é ideal o reaload
-function atualizarView(tipo, dados) {
+MODAL - SHOW DATA 
 
-    if (tipo) {
-        let option = $('<option>');
-        switch (tipo) {
-            case 'pais':
-                let selectPais = $('#select-pais');
-
-                option = $('<option>');
-                option.val(dados.id_pais).text(dados.nome).attr('selected', true);
-                selectPais.append(option);
-
-                selectPais.addClass('text-capitalize');
-                $('#next-filial').removeClass('disabled').attr('disabled', false);
-                break;
-            case 'filial':
-                let selectFilial = $('#select-filial');
-
-                option = $('<option>');
-                option.val(dados.id_filial).text(dados.nome).attr('selected', true);
-                selectFilial.append(option);
-
-                selectFilial.addClass('text-capitalize');
-                $('#next-departamento').removeClass('disabled');
-                break;
-
-            default:
-                console.log('default atualizar view');
-                break;
-        }
+*/
+function preencherCamposModal(typeItem, dados) {
+    switch (typeItem) {
+        case "cliente":
+            $("#input-id-modal").val(dados.id_cliente);
+            $("#input-razao-social-modal").val(dados.razao_social);
+            $("#input-nome-fantasia-modal").val(dados.nome_fantasia);
+            $("#input-cnpj-modal").val(dados.cnpj);
+            $("#input-cep-modal").val(dados.cep);
+            $("#input-endereco-modal").val(dados.endereco);
+            $("#input-numero-modal").val(dados.numero);
+            $("#input-complemento-modal").val(dados.complemento);
+            $("#input-bairro-modal").val(dados.bairro);
+            $("#input-cidade-modal").val(dados.cidade);
+            $("#input-estado-modal").val(dados.estado);
+            $("#input-pais-modal").val(dados.pais);
+            $("#input-telefone-empresa-modal").val(dados.telefone_empresa);
+            $("#input-nome-responsavel-modal").val(dados.nome_responsavel);
+            $("#input-email-responsavel-modal").val(dados.email_responsavel);
+            $("#input-telefone-responsavel-modal").val(dados.telefone_responsavel);
+            $("#input-data-criacao").html(dateFormat(dados.data_criacao));
+            $("#input-data-modificacao").html(dateFormat(dados.data_modificacao));
+            break;
+        case "disciplina":
+            $("#input-id-modal").val(dados.id_disciplina);
+            $("#input-nome-modal").val(dados.nome);
+            $("#input-data-criacao").html(dateFormat(dados.data_criacao));
+            $("#input-data-modificacao").html(dateFormat(dados.data_modificacao));
+            break;
+        case "combo":
+            $("#input-id-modal").val(dados.id_combo);
+            $("#input-nome-modal").val(dados.nome);
+            $("#input-data-criacao").html(dateFormat(dados.data_criacao));
+            $("#input-data-modificacao").html(dateFormat(dados.data_modificacao));
+            listarProdutosCombo(dados.id_combo);
+            break;
+        case "produto":
+            $("#input-id-modal").val(dados.id_produto);
+            $("#input-nome-modal").text(dados.nome);
+            $("#input-descricao-modal").text(dados.descricao);
+            $("#input-premissa-modal").text(dados.premissa);
+            $("#input-qtd-padrao-modal").val(dados.qtd_padrao);
+            $("#input-horas-media-estimada-modal").val(dados.horas_media_estimada);
+            $("#input-custo-medio-estimado-modal").val(dados.custo_medio_estimado);
+            $("#input-preco-unitario-modal").val(dados.preco_unitario);
+            $("#input-disciplina-modal").val(dados.id_disciplina).change();
+            $("#input-data-criacao").html(dateFormat(dados.data_criacao));
+            $("#input-data-modificacao").html(dateFormat(dados.data_modificacao));
+            listarInputsProduto(dados.id_produto);
+            listarPredecessorasProduto(dados.id_produto);
+            break;
+        case "usuario":
+            $("#input-id-modal").val(dados.id_usuario);
+            $("#input-nome-modal").val(dados.nome);
+            $("#input-sobrenome-modal").val(dados.sobrenome);
+            $("#input-email-modal").val(dados.email);
+            $("#input-data-criacao").html(dateFormat(dados.data_criacao));
+            $("#input-data-modificacao").html(dateFormat(dados.data_modificacao));
+            listarMenusUsuario(dados.id_usuario);
+            break;
+        case "email":
+            $("#input-id").val(dados.id_servidor_smtp);
+            $("#input-server").val(dados.servidor);
+            $("#input-port").val(dados.porta);
+            $("#input-user-smtp").val(dados.usuario);
+            $("#input-pass-smtp").val(dados.senha);
+            $("#input-data-criacao").html(dateFormat(dados.data_criacao));
+            $("#input-data-modificacao").html(dateFormat(dados.data_modificacao));
+            break;
+        case "desconto":
+            $("#input-cliente-modal").val(dados.razao_social);
+            if (dados.porcentagem_desconto == "0.00") {
+                $("#input-desconto-valorfixo-modal").attr('checked');
+                //$("#input-desconto-porcentagem-modal").removeAttr('checked');
+                $("#div-input-desconto-valorfixo-modal").show();
+                $("#div-input-desconto-porcentagem-modal").hide();
+            } else {
+                $("#input-desconto-porcentagem-modal").attr('checked');
+                //$("#input-desconto-valorfixo-modal").removeAttr('checked');
+                $("#div-input-desconto-valorfixo-modal").hide();
+                $("#div-input-desconto-porcentagem-modal").show();
+            }
+            $("#input-desconto-tipo-valorfixo-modal").val(dados.valor_fixo_desconto);
+            $("#input-desconto-tipo-porcentagem-modal").val(dados.porcentagem_desconto);
+            $("#input-data-criacao").html(dateFormat(dados.data_criacao));
+            $("#input-data-modificacao").html(dateFormat(dados.data_modificacao));
+            break;
+        default:
+            toastr.warning("Falha ao listar os dados no modal.");
     }
 }
+
+/* 
+
+GET DATA + OPEN MODAL
+
+*/
+function openModal(event) {
+    event.preventDefault();
+
+    const idItem = $(this).attr("id");
+    const typeItem = $(this).attr("data-id");
+
+    if (!idItem || !typeItem) {
+        toastr.warning("Falha ao listar itens, dados necessários inválidos.");
+        return false;
+    }
+
+    console.log(idItem, typeItem);
+
+    $.ajax({
+        url: urlSistema + typeItem + "/listarItem",
+        type: "GET",
+        data: { id: idItem },
+        error: function (error) {
+            toastr.error(
+                "Ocorreu um erro ao listar o item selecionado, contate o administrador do sistema."
+            );
+        },
+        success: function (result) {
+            result = result.trim();
+            console.log(result);
+            if (result) {
+                let dados = JSON.parse(result);
+                preencherCamposModal(typeItem, dados);
+                $("#modal-" + typeItem).modal("show");
+            } else {
+                toastr.warning("Falha ao carregar dados.");
+            }
+        },
+    });
+}
+$(".btn-modal").click(openModal);
 
 //cadastrar dados de gerenciamento no banco
 $('.form-cadastrar').submit(function (event) {
@@ -189,14 +283,11 @@ function listarMenu(dados) {
     $('#nome-colaborador').text(dados[0].usuario);
 
     //menus
-    let divProcesso = $('#div-processo');
-    let divIndicador = $('#div-indicador');
+    let divPrincipal = $('#div-principal');
     let divGerenciamento = $('#div-gerenciamento');
 
     //limpando antigos
     let delDiv = divProcesso.find('div');
-    delDiv.remove();
-    delDiv = divIndicador.find('div');
     delDiv.remove();
     delDiv = divGerenciamento.find('div');
     delDiv.remove();
@@ -214,7 +305,7 @@ function listarMenu(dados) {
         let id = 'menu-' + item.id_menu;
 
         switch (item.tipo) {
-            case 'lateral-smpp':
+            case 'lateral-principal':
                 div[i].addClass('icheck-success');
 
                 input[i].attr('type', 'checkbox').attr('id', id).attr('data-id', item.id_menu_usuario).addClass('acesso-menu');
@@ -225,22 +316,11 @@ function listarMenu(dados) {
 
                 div[i].append(input[i]);
                 div[i].append(label[i]);
-                divProcesso.append(div[i]);
+                divPrincipal.append(div[i]);
 
                 break;
 
-            case 'lateral-indicador':
-                div[i].addClass('icheck-info');
-                input[i].attr('type', 'checkbox').attr('id', id).attr('data-id', item.id_menu_usuario).addClass('acesso-menu');
-                item.id_usuario_ad ? input[i].attr('checked', true) : input[i].attr('checked', false);
-                label[i].attr('for', id).text(item.nome);
-
-                div[i].append(input[i]);
-                div[i].append(label[i]);
-                divIndicador.append(div[i]);
-
-                break;
-            case 'lateral-gerenciar':
+            case 'lateral-gerenciamento':
                 div[i].addClass('icheck-danger');
                 input[i].attr('type', 'checkbox').attr('id', id).attr('data-id', item.id_menu_usuario).addClass('acesso-menu');
                 item.id_usuario_ad ? input[i].attr('checked', true) : input[i].attr('checked', false);
@@ -257,35 +337,6 @@ function listarMenu(dados) {
         }
     });
     $('.acesso-menu').click(acessoMenu);
-}
-
-function listarGrupo() {
-    let selectGrupo = $('#select-grupo');
-
-    //limpar options
-    let optionDel = selectGrupo.find('option');
-    optionDel.remove();
-
-    $.ajax({
-        url: diretorio + 'usuario/grupo',
-        type: 'GET',
-        error: function (result) {
-            //console.log(result);
-            mensagem('danger', 'Erro ao listar os grupos de acesso. Contate o Administrador do Sistema.');
-        },
-        success: function (result) {
-            //console.log(result);
-            if (result) {
-                let dados = JSON.parse(result);
-
-                $.each(dados, function (i, item) {
-                    let option = $('<option>');
-                    option.val(item.id_grupo_acesso).text(item.nome);
-                    selectGrupo.append(option);
-                });
-            }
-        }
-    });
 }
 
 function listarDepartamentos() {
@@ -370,71 +421,6 @@ function remover(event) {
     }
 }
 
-//listar acessos na tabela - usuários
-function listarAcesso() {
-    let idUsuario = $('#input-id').val();
-
-    let table = $('#table-acessos');
-
-    //limpar options
-    let trDel = table.find('tbody tr');
-    trDel.remove();
-
-    $.ajax({
-        url: diretorio + 'departamento/listarAcesso',
-        type: 'POST',
-        data: { idUsuario, acao: 'listar' },
-        error: function (result) {
-            //console.log(result);
-            mensagem('danger', 'Erro ao listar os grupos de acesso. Contate o Administrador do Sistema.');
-        },
-        success: function (result) {
-            //console.log(result);
-
-            switch (result) {
-                case 'erro':
-                    let tr = $('<tr>');
-                    let td = $("<td colspan='3' class='text-center'>").text('Nenhum acesso cadastrado');
-
-                    tr.append(td);
-
-                    table.append(tr);
-
-                    mensagem('warning', 'Falha ao listar os departamentos de acesso. Verifique se o colaborador possui algum departamento de acesso.');
-                    break;
-                default:
-                    let dados = JSON.parse(result);
-
-                    $.each(dados, function (i, item) {
-                        let tr = $('<tr>');
-                        let tdGrupo = $('<td>');
-                        let tdDepartamento = $('<td>');
-                        let tdBotao = $('<td>');
-
-                        let a = $('<a>');
-                        a.attr('title', 'Remover acesso').addClass('text-danger').attr('href', '#');
-                        a.attr('id', item.id_departamento_usuario).addClass('remover').attr('data-id', 'departamento_usuario');
-                        let icon = $('<i>');
-                        icon.addClass('fas').addClass('fa-trash-alt');
-
-                        a.append(icon);
-
-                        tdGrupo.text(item.grupo);
-                        tdDepartamento.text(`${item.departamento} - ${item.filial} - ${item.pais}`);
-                        tdBotao.append(a);
-
-                        tr.append(tdGrupo);
-                        tr.append(tdDepartamento);
-                        tr.append(tdBotao);
-
-                        table.append(tr);
-                    });
-                    $('.remover').click(remover);
-            }
-        }
-    });
-}
-
 // GERAL - EDITAR //
 
 //exibir dados para a tela de editar
@@ -471,233 +457,11 @@ function exibir(tipo, dados) {
 
         case 'usuario':
             listarMenu(dados);
-            listarGrupo();
             listarDepartamentos();
             listarAcesso();
             break;
-
-        case 'submissao':
-            $('.input-id').val(dados[0].id_submissao);
-            $(".input-id-departamento").val(dados[0].id_departamento);
-            $('.input-id-departamento-resposta').val($('#select-departamento').val());
-            $('#input-cod-smpp-view').val(dados[0].cod_submissao.toUpperCase());
-            $('#input-projeto-view').val(dados[0].projeto.toUpperCase());
-            $('#input-data-criacao-view').val(dados[0].data_criacao.toUpperCase());
-            $('#input-departamento-view').val(dados[0].departamento.toUpperCase());
-            $('#input-filial-view').val(dados[0].filial.toUpperCase());
-            $('#input-pais-view').val(dados[0].pais.toUpperCase());
-            $('#input-emitente-view').val(dados[0].usuario.toUpperCase());
-            $('#input-cliente-view').val(dados[0].cliente.toUpperCase());
-            $('#input-artigo-view').val(dados[0].artigo.toUpperCase());
-            $('#input-solicitacao-view').val(dados[0].solicitacao.toUpperCase());
-            $('#input-documento-cliente-view').val(dados[0].documento_cliente.toUpperCase());
-            $('#text-modificacao-view').text(dados[0].modificacao.toUpperCase());
-            $('#text-justificativa-modificacao-view').text(dados[0].justificativa_modificacao.toUpperCase());
-            $('#text-descricao-modificacao-view').text(dados[0].descricao_modificacao.toUpperCase());
-            $('#input-priorizacao-view').val(dados[0].priorizacao);
-            $('#input-local-mudanca-view').val(dados[0].local_mudanca);
-            $('#input-tipo-mudanca-view').val(dados[0].solicitacao.toUpperCase());
-            $('#input-plantas-afetadas-view').val(dados[0].plantas_afetadas);
-            $('#input-codigos-afetados-view').val(dados[0].codigos_afetados);
-            $('#input-clientes-afetados-view').val(dados[0].clientes_afetados);
-            $('#input-impacto-custo-produto-view').val(dados[0].impacto_custo_produto);
-            $('#input-impacto-custo-ferramental-view').val(dados[0].impacto_custo_ferramental);
-            $('#input-impacto-custo-processo_logistico-view').val(dados[0].impacto_custo_processo_logistico);
-            $('#input-impacto-custo-validacao-view').val(dados[0].impacto_custo_validacao);
-            if (dados[0].imagem_atual !== "") {
-                $('#img-atual').replaceWith("<img id='img-atual' src='" + dados[0].imagem_atual + "' class='img-fluid'> ");
-            } else {
-                $('#img-atual').replaceWith("<img id='img-atual' src='" + diretorio + "resources/dist/img/atual.jpg' class='img-fluid'> ");
-            }
-            if (dados[0].imagem_proposta !== "") {
-                $('#img-proposto').replaceWith("<img id='img-proposto' src='" + dados[0].imagem_proposta + "' class='img-fluid'> ");
-            } else {
-                $('#img-proposto').replaceWith("<img id='img-proposto' src='" + diretorio + "resources/dist/img/proposto.jpg' class='img-fluid'> ");
-            }
-            
-            //forms com base no status - aprovações
-            $('#table-aprovacao tbody').empty();
-
-            //pré aprovar
-            if (dados[0].id_submissao_status == 1) {
-                $("#form-pre-aprovacao").removeClass("hidden");
-                $("#form-aprovacao").addClass("hidden");
-                $("#table-aprovacao").addClass("hidden");
-                $("#form-cancelar-submissao");
-            }
-
-            //aprovação
-            if (dados[0].id_submissao_status === 2 || dados[0].id_submissao_status === 3 || dados[0].id_submissao_status === 4 || dados[0].id_submissao_status === 9) {
-                $("#form-pre-aprovacao").addClass("hidden");
-                $("#form-cancelar-submissao").remove();
-
-                let idSubmissao = dados[0].id_submissao;
-                let idDepartamento = dados[0].id_departamento;
-                let selectDepartamento = $('#select-departamento').val();
-                //console.log(idSubmissao, idDepartamento);
-
-                $.ajax({
-                    url: diretorio + 'submissao/listarPerguntaAprovacao',
-                    type: 'POST',
-                    data: { idSubmissao, idDepartamento },
-                    error: function (result) {
-                        //console.log(result);
-                        mensagem('danger', 'Falha ao buscar dados para aprovação da submissão');
-                    },
-                    success: function (result) {
-                        //console.log(result);
-                        //limpa a tabela para exibicao de novos resultados
-
-                        $('#table-aprovacao tbody').empty();
-                        $('#table-aprovacao').removeClass("hidden");
-                        $("#form-aprovacao").removeClass("hidden");
-
-                        if (result) {
-                            let aprovacao = JSON.parse(result);
-                            resposta = '';
-                            let tabela = $('#table-aprovacao');
-                            var rows = "";
-                            var usuario_logado = $('#usuario_ativo').val();
-
-                            //var departamento_selecionado = $('#departamento_ativo').val();
-
-                            var a = false;
-                            var b = false;
-                            var c = false;
-
-                            $.each(aprovacao, function (i, aprovacoes) {
-                                console.log(aprovacoes);
-                                switch (aprovacoes.resposta) {
-                                    case 's':
-                                        resposta = 'Aprovado';
-                                        break;
-                                    case 'n':
-                                        resposta = 'Reprovado';
-                                        break;
-                                    case 'na':
-                                        resposta = 'Opcional';
-                                        break;
-                                    case 'ppap':
-                                        resposta = 'Revalid. PPAP';
-                                        break;
-                                    default:
-                                        resposta = '';
-                                        break;
-                                }
-
-                                if (aprovacoes.comentario == null) {
-                                    comentario = "";
-                                } else {
-                                    comentario = aprovacoes.comentario;
-                                }
-
-                                if (aprovacoes.data_criacao == null) {
-                                    data_criacao = "";
-                                } else {
-                                    data_criacao = aprovacoes.data_criacao;
-                                }
-
-                                rows += "<tr class='font-weight-light text-capitalize'>";
-                                rows += "<td class='text-center'><a href='#' class='text-success btn-usuarios-departamento' data-id='" + aprovacoes.id_departamento + "'><i class='far fa-eye'></i></a><div data-div-usuarios-" + aprovacoes.id_departamento + "></div></td>";
-                                rows += " <td>" + aprovacoes.usuario_aprovacao + "</td>";
-                                rows += " <td>" + aprovacoes.nome + "</td>";
-                                rows += " <td>" + resposta + "</td>";
-                                rows += " <td>" + comentario + "</td>";
-                                rows += " <td>" + data_criacao + "</td>";
-                                rows += "</tr>";
-                                //console.log(aprovacoes.usuario_ad +' - '+ usuario_logado);
-                                if (aprovacoes.usuario_ad == usuario_logado) {
-                                    a = true;
-                                    if (aprovacoes.id_departamento == selectDepartamento && resposta !== "" && resposta !== "Revalid. PPAP") {
-                                        b = true;
-                                        c = true;
-                                    }
-                                }
-
-                                tabela.find("tbody").html(rows);
-                            });
-
-                            $('.btn-usuarios-departamento').click(listarUsuariosDepartamento);
-
-                            if (a == true && b == true && c == true) {
-                                $("#form-aprovacao").addClass("hidden");
-                            } else {
-                                $("#form-aprovacao").removeClass("hidden");
-                            }
-                        }
-                    }
-                });
-            }
-
-            //visualizacao - desabilita edição de documento
-            var btnSmppVisualizar = $("#btn-smpp-visualizar");
-            if (btnSmppVisualizar.hasClass('active')) {
-                $("#form-pre-aprovacao").addClass("hideTable");
-                $("#form-aprovacao").addClass("hideTable");
-                $("#cancelar-smpp").addClass("hideTable");
-            } else {
-                $("#form-pre-aprovacao").removeClass("hideTable");
-                $("#form-aprovacao").removeClass("hideTable");
-                $("#cancelar-smpp").removeClass("hideTable");
-            }
-
-            break;
         default:
             break;
-    }
-}
-
-function listarUsuariosDepartamento() {
-    //listar usuários departamento                    
-    const idDepartamento = $(this).attr('data-id');
-    
-    $.ajax({
-        url: diretorio + 'departamento/listarUsuariosDepartamento/',
-        type: 'POST',
-        data: { idDepartamento: idDepartamento },
-        error: function (result) {
-            //console.log(result);
-            mensagem('danger', 'Falha ao exibir dados. Contate o Adminsitrador do Sistema.');
-        },
-        success: function (result) {
-            //console.log(result);
-            let usuarios = JSON.parse(result);
-            let divUsuarios = document.querySelector('[data-div-usuarios-' + idDepartamento + ']');
-            divUsuarios.innerHTML = '';
-            let nomes = '';
-            usuarios.forEach(item => {
-                nomes += item.usuario + ', ';
-            });
-            divUsuarios.append(nomes);
-            setInterval(() => divUsuarios.innerHTML = '', 3500);
-        }
-    });
-}
-
-function meudepartamento(tabela, id) {
-
-    if (id != '' && tabela != '') {
-        let url = diretorio + 'departamento/listartudo';
-        let selectDepartamento = $('#select-departamento');
-
-        $.ajax({
-            url: url,
-            type: 'POST',
-            data: { id },
-            error: function (result) {
-                //console.log(result);
-                mensagem('danger', 'Falha ao exibir dados. Contate o Adminsitrador do Sistema.');
-            },
-            success: function (result) {
-                //console.log(result);
-                let dados = JSON.parse(result);
-                $.each(dados, function (i, item) {
-                    let option = $('<option>');
-                    option.val(item.id_departamento).text(`${item.departamento} - ${item.filial} - ${item.pais}`);
-                    selectDepartamento.append(option);
-                });
-            }
-        });
     }
 }
 
@@ -766,370 +530,72 @@ function alterarStatus() {
     }
 }
 
-//FILIAL //
+$("#form-new-cliente").validate({
+    rules: {
+        nome: {
+            required: true,
+        },
+        sobrenome: {
+            required: true,
+        },
+        sobrenome: {
+            required: true,
+        },
+        celular: {
+            required: true,
+            pattern: "[1-9]{2}[0-9]{5}[0-9]{4}$"
+        },
+    },
+    messages: {
+        paciente: {
+            required: "O nome é obrigatório",
+        },
+        celular: {
+            required: "O celular é obrigatório",
+            pattern: "Use este formato 11900000000"
+        },
+    }
+});
 
-//listar filial
-function listarFiliais(idPais) {
-    if (idPais) {
 
-        $('#input-id-pais').val(idPais);
-        let selectFilial = $('#select-filial');
-
-        let delOption = selectFilial.find('option');
-        delOption.remove();
-        let option = $('<option>');
-        option.val('').text('-- Selecione ou adicione --').attr('disabled', true).attr('selected', true);
-        selectFilial.append(option);
-
+function cadCliente() {
+    let str = $("#form-new-cliente").serialize();
+    if ($("#form-new-cliente").valid()) {
         $.ajax({
-            url: diretorio + 'filial/listar',
-            type: 'POST',
-            data: { id_pais: idPais },
-            error: function (result) {
-                //console.log(result);
+            type: "POST",
+            url: base_url + "controle/gerenciapacientes",
+            data: str,
+            success: function (data) {
+                console.log(data);
+                Swal.fire({
+                    type: 'success',
+                    title: 'Cadastrado',
+                    text: 'O paciente foi cadastrado com sucesso!',
+                    customClass: {
+                        confirmButton: 'btn btn-primary'
+                    },
+                    buttonsStyling: false
+                });
+                $(".swal2-confirm").click(function () {
+                    location.reload();
+                });
             },
-            success: function (result) {
-
-                switch (result) {
-                    case 'erro':
-                        break;
-                    default:
-                        let dados = JSON.parse(result);
-
-                        $.each(dados, function (i, item) {
-                            let option = $('<option>');
-                            option.val(item.id_filial).text(item.nome);
-                            selectFilial.append(option);
-                        });
-                        break;
-                }
-            }
-        });
-        selectFilial.addClass('text-capitalize');
-    }
-}
-
-//abas
-function voltarPais() {
-    $('#tab-pais-tab').addClass('active').attr('selected', true).attr('aria-selected', true);
-    $('#tab-filial-tab').removeClass('active').attr('selected', false).attr('aria-selected', false).addClass('disabled');
-    $('#tab-departamento-tab').removeClass('active').attr('selected', false).attr('aria-selected', false).addClass('disabled');
-
-    $('#tab-pais').addClass('active').addClass('show');
-    $('#tab-filial').removeClass('active').removeClass('show');
-    $('#tab-departamento').removeClass('active').removeClass('show');
-
-    $('#next-departamento').attr('disabled', true);
-}
-
-//abas
-function voltarFilial() {
-    $('#tab-pais-tab').removeClass('active').attr('selected', false).attr('aria-selected', false).addClass('disabled');
-    $('#tab-filial-tab').addClass('active').attr('selected', true).attr('aria-selected', true);
-    $('#tab-departamento-tab').removeClass('active').attr('selected', false).attr('aria-selected', false).addClass('disabled');
-
-    $('#tab-pais').removeClass('active').removeClass('show');
-    $('#tab-filial').addClass('active').addClass('show');
-    $('#tab-departamento').removeClass('active').removeClass('show');
-}
-
-function proximoFilial() {
-    let nomePais = $('#select-pais option:selected').text();
-    let idPais = $('#select-pais option:selected').val();
-
-    $('#tab-pais-tab').removeClass('active').attr('selected', false).attr('aria-selected', false).addClass('disabled');
-    $('#tab-filial-tab').addClass('active').attr('selected', true).attr('aria-selected', true);
-    $('#tab-departamento-tab').removeClass('active').attr('selected', false).attr('aria-selected', false).addClass('disabled');
-
-    $('#tab-pais').removeClass('active').removeClass('show');
-    $('#tab-filial').addClass('active').addClass('show');
-    $('#tab-departamento').removeClass('active').removeClass('show');
-
-    $('.pais').text(nomePais).addClass('text-capitalize');
-
-    listarFiliais(idPais);
-}
-
-function proximoDepartamento() {
-    let nomeFilial = $('#select-filial option:selected').text();
-    let idFilial = $('#select-filial option:selected').val();
-
-    $('#tab-pais-tab').removeClass('active').attr('selected', false).attr('aria-selected', false).addClass('disabled');
-    $('#tab-filial-tab').removeClass('active').attr('selected', false).attr('aria-selected', false).addClass('disabled');
-    $('#tab-departamento-tab').addClass('active').attr('selected', true).attr('aria-selected', true);
-
-    $('#tab-pais').removeClass('active').removeClass('show');
-    $('#tab-filial').removeClass('active').removeClass('show');
-    $('#tab-departamento').addClass('active').addClass('show');
-
-    $('.filial').text(nomeFilial).addClass('text-capitalize');
-    $('#input-id-filial').val(idFilial);
-}
-
-function ativarFilial() {
-    let idPais = $(this).val();
-    if (idPais) {
-        $("#next-filial").removeClass('disabled').attr('disabled', false);
-    }
-}
-
-function ativarDepartamento() {
-    let idFilial = $(this).val();
-    if (idFilial) {
-        $('#next-departamento').attr('disabled', false).removeClass('disabled');
-        $('#input-id-filial').val(idFilial);
-    }
-}
-
-$('#select-pais').change(ativarFilial);
-$('#select-filial').change(ativarDepartamento);
-
-$('#back-pais').click(voltarPais);
-$('#back-filial').click(voltarFilial);
-
-$('#next-filial').click(proximoFilial);
-$('#tab-filial-tab').click(proximoFilial);
-
-$('#next-departamento').click(proximoDepartamento);
-
-//END FILIAL //
-
-
-// SUBMISSÃO - SELECIONAR DEPARTAMENTO //
-
-//selecionar departamento
-$('#select-departamento').change(selecionarDepartamento);
-function selecionarDepartamento() {
-    let idDepartamento = $(this).val();
-    if (idDepartamento) {
-        //console.log(idDepartamento);
-        $("#form-departamento-smpp").submit();
-    }
-}
-
-//salvar pré-aprovação
-$('.form-aprovacao-submissao').submit(function (event) {
-    event.preventDefault();
-    let form = $(this);
-    let acao = form.attr("data-id");
-    let dados = form.serialize();
-
-    //console.log(dados, acao);
-    $('.btn-submit-register').attr('disabled', true);
-    $.ajax({
-        url: diretorio + 'submissao/' + acao,
-        type: 'POST',
-        data: dados,
-        error: function (result) {
-            console.log(result);
-            mensagem('error', 'Falha ao aprovar/reprovar submissão. Contate o Adminsitrador do sistema.');
-            $('.btn-submit-register').attr('disabled', false);
-        },
-        success: function (result) {
-            console.log(result);
-            if (result) {
-                //$(".modal").modal("hide");
-                mensagem('success', 'Registrada aprovação/reprovação com sucesso! Sua página será recarregada.');
-                setTimeout(() => location.reload(), 2000);
-            } else {
-                mensagem('warning', 'Falha ao registrar aprovação/reprovação da submissão, verifique dados selecionados.');
-                $('.btn-submit-register').attr('disabled', false);
-            }
-        }
-    });
-
-
-});
-
-//oculta / exibe campo documento cliente
-$('#input-solicitacao-cliente').click(function () {
-    var $that = $(this);
-
-    if ($that.prop("checked", true)) {
-        $('#div-input-documento-cliente').show();
-        console.log('show');
-    }
-});
-
-//oculta / exibe campo documento cliente
-$('#input-solicitacao-interna').click(function () {
-    var $that = $(this);
-
-    if ($that.prop("checked", true)) {
-        $('#div-input-documento-cliente').hide();
-        console.log('hide');
-    }
-});
-
-function atualizaStageKickoff(e) {
-    id_stage_gate = $("#view-id-stage-gate").val();
-    coluna = 'data_inicio';
-    data = e.target.value;
-    $.ajax({
-        url: diretorio + 'stage/atualizastagegate/' + id_stage_gate,
-        type: 'POST',
-        data: { coluna: coluna, data: data, id: id_stage_gate },
-        error: function (result) {
-            console.log(result);
-            mensagem('danger', 'Falha ao registrar. Contate o Adminsitrador do Sistema.');
-        },
-        success: function (result) {
-            console.log(result);
-            switch (result.trim()) {
-                case 'success':
-                    mensagem('success', 'Data atualizada com sucesso!');
-                    break;
-                case 'erro':
-                    mensagem('warning', 'Falha ao registrar, item existente ou dados inválidos! Por favor, verifique.');
-                    break;
-            }
-
-        }
-    });
-    //alert(e.target.value);
-}
-
-function atualizaStageImplementation(e) {
-    id_stage_gate = $("#view-id-stage-gate").val();
-    coluna = 'data_implementacao';
-    data = e.target.value;
-    $.ajax({
-        url: diretorio + 'stage/atualizastagegate/' + id_stage_gate,
-        type: 'POST',
-        data: { coluna: coluna, data: data, id: id_stage_gate },
-        error: function (result) {
-            mensagem('danger', 'Falha ao registrar. Contate o Adminsitrador do Sistema.');
-        },
-        success: function (result) {
-            switch (result.trim()) {
-                case 'success':
-                    mensagem('success', 'Data atualizada com sucesso!');
-                    break;
-                case 'erro':
-                    mensagem('warning', 'Falha ao registrar, item existente ou dados inválidos! Por favor, verifique.');
-                    break;
-            }
-
-        }
-    });
-}
-
-function atualizaStageReview(e) {
-    id_stage_gate = $("#view-id-stage-gate").val();
-    coluna = 'data_revisao';
-    data = e.target.value;
-    $.ajax({
-        url: diretorio + 'stage/atualizastagegate/' + id_stage_gate,
-        type: 'POST',
-        data: { coluna: coluna, data: data, id: id_stage_gate },
-        error: function (result) {
-            mensagem('danger', 'Falha ao registrar. Contate o Adminsitrador do Sistema.');
-        },
-        success: function (result) {
-            switch (result.trim()) {
-                case 'success':
-                    mensagem('success', 'Data atualizada com sucesso!');
-                    break;
-                case 'erro':
-                    mensagem('warning', 'Falha ao registrar, item existente ou dados inválidos! Por favor, verifique.');
-                    break;
-            }
-
-        }
-    });
-}
-
-
-//exibe tela de finalização de Change Management Gate
-$('#botao-finalizar-stage-gate').click(function () {
-    id_stage_gate = $("#view-id-stage-gate").val();
-    $("#modal-finalizar-stage-gate").modal("show");
-});
-
-function atualizaStageFinal() {
-    id_stage_gate = $("#view-id-stage-gate").val();
-    observacao = $("#text-finalizar-stage-gate").val();
-    coluna = 'observacao_final';
-
-    $('.btn-submit-register').attr('disabled', false);
-    if (observacao !== "") {
-        $.ajax({
-            url: diretorio + 'stage/atualizastagegate/' + id_stage_gate,
-            type: 'POST',
-            data: { coluna: coluna, data: observacao, id: id_stage_gate },
-            error: function (result) {
-                mensagem('danger', 'Falha ao registrar. Contate o Adminsitrador do Sistema.');
-            },
-            success: function (result) {
-                switch (result.trim()) {
-                    case 'success':
-                        mensagem('success', 'Change Management Gate finalizado com sucesso!');
-                        $("#modal-finalizar-stage-gate").modal("hide");
-                        setTimeout(() => location.replace(diretorio + 'stage/'), 2000);
-                        break;
-                    case 'erro':
-                        mensagem('warning', 'Falha ao registrar, item existente ou dados inválidos! Por favor, verifique.');
-                        break;
-                }
+            error: function (data) {
+                console.log(data);
+                alert('error handling here');
             }
         });
     } else {
-        mensagem('warning', 'Campos obrigatórios não foram preenchidos.');
+        Swal.fire({
+            type: 'warning',
+            title: 'Atenção',
+            text: 'Há campos em branco, verifique se as opções foram preenchidas!',
+            customClass: {
+                confirmButton: 'btn btn-primary'
+            },
+            buttonsStyling: false
+        });
     }
 }
 
-$('#input-confirm-cancel-smpp').keyup(function () {
-    const cancelar = "CANCELAR";
-    let conf = $(this).val().toUpperCase();
-    
-    if (conf == cancelar){
-        $('#cancelar-nova-smpp').removeAttr("disabled");
-        $('#cancelar-stage').removeAttr("disabled");
-    }else{
-        $('#cancelar-nova-smpp').prop("disabled", true);
-        $('#cancelar-stage').prop("disabled", true);
-    }
-});
-
-//cancelar submissao
-$('#cancelar-nova-smpp').click(function() {
-    cancelaSMPP('smpp');
-});
-
-
-$('#cancelar-stage').click(function () {
-    cancelaSMPP('cmg');
-});
-
-
-function cancelaSMPP(tipo) {
-    let acao = $('.form-cancelar-submissao').attr("data-id");
-    let dados = $('.form-cancelar-submissao').serialize(); 
-    //let tipo = tipo;
-
-    $.ajax({
-        url: diretorio + 'submissao/' + acao,
-        type: 'POST',
-        data: dados,
-        error: function (result) {
-            mensagem('error', 'Falha ao cancelar submissão. Contate o Adminsitrador do sistema.');
-        },
-        success: function (result) {
-            if (result) {
-                mensagem('success', 'Submissão cancelada com sucesso! Sua página será recarregada.');
-                $("#input-confirm-cancel-smpp").val("");
-                $("#modal-cancelar-smpp").modal("hide");
-                if(tipo == 'cmg'){
-                    setTimeout(() => location.replace(diretorio + 'stage/'), 2000);
-                }else{
-                    setTimeout(() => location.reload(), 2000);
-                }                
-            } else {
-                mensagem('warning', 'Falha ao cancelar submissão, verifique dados selecionados.');
-            }
-        }
-    });
-}
-
-
-
+$('.btn-submit').click(cadCliente);

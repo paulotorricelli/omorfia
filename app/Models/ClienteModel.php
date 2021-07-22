@@ -8,14 +8,8 @@ use CodeIgniter\Database\ConnectionInterface;
 
 class ClienteModel extends Model
 {
-    protected $db;
-
-    public function __construct(ConnectionInterface &$db){
-        $this->db =& $db;
-    }
-
-    function listar(){
-        $query = $this->db->query('SELECT id_cliente, nome, sobrenome, telefone, celular, email, data_nascimento FROM cliente');
-        return $query->getResult();
-	}
+    protected $table = 'cliente';
+    protected $primaryKey = 'id_cliente';
+    protected $allowedFields = ['nome', 'sobrenome', 'telefone', 'celular', 'email', 'data_nascimento', 'data_criacao', 'data_modificacao'];
+    protected $returnType = 'object'; //ou array
 }

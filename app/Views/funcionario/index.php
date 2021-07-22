@@ -40,8 +40,8 @@
                       <input class="form-control" type="email" id="input-email" name="email" placeholder="e-mail@dominio.com.br" required>
                     </div>
                     <div class="col-sm-12 col-md-5">
-                      <label for="input-telefone">Telefone: </label>
-                      <input class="form-control" type="telefone" id="input-telefone" name="telefone" placeholder="(DDD) 90000-0000">
+                      <label for="input-celular">Celular: </label>
+                      <input class="form-control" type="text" id="input-celular" name="celular" placeholder="11900000000">
                     </div>
                   </div>
                   <div class="form-group row">
@@ -125,7 +125,7 @@
                         <th>Nome</th>
                         <th>Sobrenome</th>
                         <th>E-mail</th>
-                        <th>Telefone</th>
+                        <th>Celular</th>
                       </tr>
                     </thead>
                     <tbody class="text-uppercase">
@@ -135,6 +135,9 @@
                             <td class="align-middle">
                               <a href="#" title="Editar" class="btn btn-outline-primary btn-sm btn-modal" id="<?= $item->id_usuario ?>" data-id="usuario">
                                 <i class="fas fa-edit"></i>
+                              </a>
+                              <a href="https://api.whatsapp.com/send?phone=55<?=$item->celular?>" title="WhatsApp" target="_blank" class="btn btn-outline-success btn-sm">
+                                <i class="fab fa-whatsapp"></i>
                               </a>
                             </td>
                             <td class="align-middle">
@@ -157,7 +160,7 @@
                             <td class="align-middle"><?= $item->nome ?></td>
                             <td class="align-middle"><?= $item->sobrenome ?></td>
                             <td class="align-middle"><?= $item->email ?></td>
-                            <td class="align-middle"><?= $item->telefone ?></td>
+                            <td class="align-middle"><?= $item->celular ?></td>
                           </tr>
                         <?php } ?>
                       <?php } else { ?>

@@ -6,10 +6,16 @@ use App\Models\MenuModel;
 
 class Produto extends BaseController
 {
+	private $menu; 
+
+	public function __construct()
+	{
+		$this->menu = new MenuModel();   
+	}
+
 	public function index()
 	{
-		$MenuModel = new MenuModel();
-		$menus = $MenuModel->findAll();
+		$menus = $this->menu->findAll();
 
 		$header = array(
 			"aba" => "Produtos",
