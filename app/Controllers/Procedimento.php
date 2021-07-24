@@ -7,13 +7,13 @@ use App\Models\ProcedimentoModel;
 
 class Procedimento extends BaseController
 {
-	private $menu; 
-	private $procedimento; 
+	private $menu;
+	private $procedimento;
 
 	public function __construct()
 	{
 		$this->menu = new UsuarioMenuModel();
-		$this->procedimento = new ProcedimentoModel();   
+		$this->procedimento = new ProcedimentoModel();
 	}
 
 	public function index()
@@ -36,21 +36,21 @@ class Procedimento extends BaseController
 		);
 
 		echo view('fragments/header', $header);
-      	echo view('procedimento/index', $dados);
-      	echo view('fragments/footer', $script);
+		echo view('procedimento/index', $dados);
+		echo view('fragments/footer', $script);
 	}
-	
+
 	public function cadastrar()
 	{
-		if($this->request->getMethod() === 'post'){
+		if ($this->request->getPost()) {
 			$data = [
-            	'nome' => $this->request->getVar('nome'),
-            	'descricao'  => $this->request->getVar('descricao'),
+				'nome' => $this->request->getVar('nome'),
+				'descricao'  => $this->request->getVar('descricao'),
 				'valor'  => $this->request->getVar('valor-venda'),
 				'status'  => 's',
 				'data_criacao'  => date('Y-m-d H:i:s'),
 				'data_modificacao'  => date('Y-m-d H:i:s'),
-        	];
+			];
 			$this->procedimento->insert($data);
 			return true;
 		}
@@ -58,22 +58,22 @@ class Procedimento extends BaseController
 
 	public function atualizar()
 	{
-		if($this->request->getMethod() === 'post'){
+		if ($this->request->getPost()) {
 			$id_procedimento = $this->request->getVar('id_procedimento');
 			$data = [
-            	'nome' => $this->request->getVar('nome'),
-            	'descricao'  => $this->request->getVar('descricao'),
+				'nome' => $this->request->getVar('nome'),
+				'descricao'  => $this->request->getVar('descricao'),
 				'valor_venda'  => $this->request->getVar('valor-venda'),
 				'data_modificacao'  => date('Y-m-d H:i:s'),
-        	];
-			$this->procedimento->update($id_cliente, $data);
+			];
+			$this->procedimento->update($id_procedimento, $data);
 			return true;
 		}
 	}
-	
+
 	public function lista()
 	{
-		if($this->request->getMethod() === 'get'){
+		if ($this->request->getGet()) {
 			$id = $this->request->getVar('id');
 			$procedimento = $this->procedimento->find($id);
 			echo json_encode($procedimento);
@@ -82,13 +82,13 @@ class Procedimento extends BaseController
 
 	public function status()
 	{
-		if($this->request->getMethod() === 'post'){
+		if ($this->request->getPost()) {
 			$id = $this->request->getVar('id');
 			$status = $this->request->getVar('status');
 			$data = [
-            	'status' => $status,
+				'status' => $status,
 				'data_modificacao'  => date('Y-m-d H:i:s'),
-        	];
+			];
 			$this->procedimento->update($id, $data);
 			echo true;
 		}

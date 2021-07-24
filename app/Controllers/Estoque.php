@@ -6,7 +6,7 @@ use App\Models\UsuarioMenuModel;
 
 class Estoque extends BaseController
 {
-	private $menu; 
+	private $menu;
 
 	public function __construct()
 	{
@@ -27,7 +27,7 @@ class Estoque extends BaseController
 		);
 
 		echo view('fragments/header', $header);
-      	echo view('estoque/index');
-      	echo view('fragments/footer', $script);
+		echo view('estoque/index');
+		echo view('fragments/footer', $script);
 	}
 }

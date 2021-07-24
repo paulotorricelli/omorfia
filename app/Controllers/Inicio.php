@@ -11,22 +11,21 @@ class Inicio extends BaseController
 {
 	private $login;
 	private $logout;
-	private $menu; 
+	private $menu;
 	private $cliente;
 
 	public function __construct()
 	{
-		$this->login = new LoginModel();  
+		$this->login = new LoginModel();
 		$this->menu = new UsuarioMenuModel();
-		$this->cliente = new ClienteModel();  
-		$this->logout = new Logout();     
+		$this->cliente = new ClienteModel();
+		$this->logout = new Logout();
 	}
 
 	public function index()
-	{	
+	{
 
-		if ($this->login->verificaLogin()) 
-		{
+		if ($this->login->verificaLogin()) {
 			$menus = $this->menu->listar();
 
 			$header = array(
@@ -48,7 +47,7 @@ class Inicio extends BaseController
 			echo view('fragments/header', $header);
 			echo view('inicio/index', $dados);
 			echo view('fragments/footer', $script);
-		}else{
+		} else {
 			return $this->logout->index();
 		}
 	}

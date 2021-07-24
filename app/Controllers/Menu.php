@@ -27,7 +27,7 @@ class Menu extends BaseController
 
 	public function usuario()
 	{
-		if($this->request->getMethod() === 'get'){
+		if($this->request->getGet()){
 			$id = $this->request->getVar('id');
     		$menus = $this->usuarioMenu->userMenus($id);
 

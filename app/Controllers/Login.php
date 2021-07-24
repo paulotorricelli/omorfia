@@ -35,7 +35,7 @@ class Login extends BaseController
 
 	public function sessao()
 	{
-		if ($this->request->getMethod() === 'post') {
+		if ($this->request->getPost()) {
 
 			$dados = $this->request->getPost();		 
 			$retorno = $this->login->login($dados);
