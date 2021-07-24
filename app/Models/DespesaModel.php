@@ -6,8 +6,8 @@ use CodeIgniter\Model;
 
 class DespesaModel extends Model
 {
-    protected $table = 'despesa_entrada';
-    protected $primaryKey = 'id_despesa_entrada';
-    protected $allowedFields = ['valor', 'descricao', 'categoria', 'repetir', 'tipo', 'status', 'data_despesa', 'data_criacao', 'data_modificacao'];
+    protected $table = 'despesa';
+    protected $primaryKey = 'id_despesa';
+    protected $allowedFields = ['valor', 'descricao', 'id_categoria', 'repetir', 'status', 'data_despesa', 'despesa_fixa', 'data_criacao', 'data_modificacao'];
     protected $returnType = 'object'; //array
 }

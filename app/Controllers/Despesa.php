@@ -3,14 +3,17 @@
 namespace App\Controllers;
 
 use App\Models\UsuarioMenuModel;
+use App\Models\DespesaModel;
 
 class Despesa extends BaseController
 {
-	private $menu; 
+	private $menu;
+	private $despesa;
 
 	public function __construct()
 	{
-		$this->menu = new UsuarioMenuModel(); 
+		$this->despesa = new DespesaModel();  
+		$this->menu = new UsuarioMenuModel();
 	}
 
 	public function index()
@@ -23,12 +26,18 @@ class Despesa extends BaseController
 			"menus" => $menus
 		);
 
+		$despesas =  $this->despesa->findAll();
+
+		$dados = array(
+			"despesas" => $despesas
+		);
+
 		$script = array(
 			"script" => 'despesa'
 		);
 
 		echo view('fragments/header', $header);
-      	echo view('despesa/index');
-      	echo view('fragments/footer', $script);
+		echo view('despesa/index', $dados);
+		echo view('fragments/footer', $script);
 	}
 }
