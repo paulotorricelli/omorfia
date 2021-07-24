@@ -76,3 +76,119 @@ function updCliente(event) {
 
 $('.btn-submit').click(cadCliente);
 $('.btn-submit-update').click(updCliente);
+
+function limpaFormularioCEP() {
+    // Limpa valores do formulário de cep.
+    $("#input-endereco").val("");
+    $("#input-bairro").val("");
+    $("#input-cidade").val("");
+    $("#input-uf").val("");
+}
+
+function limpaFormularioCEPModal() {
+    // Limpa valores do formulário de cep.
+    $("#input-endereco-modal").val("");
+    $("#input-bairro-modal").val("");
+    $("#input-cidade-modal").val("");
+    $("#input-uf-modal").val("");
+}
+
+//Quando o campo cep perde o foco.
+$("#input-cep").blur(function () {
+
+    //Nova variável "cep" somente com dígitos.
+    var cep = $(this).val().replace(/\D/g, '');
+
+    //Verifica se campo cep possui valor informado.
+    if (cep != "") {
+
+        //Expressão regular para validar o CEP.
+        var validacep = /^[0-9]{8}$/;
+
+        //Valida o formato do CEP.
+        if (validacep.test(cep)) {
+
+            //Preenche os campos com "..." enquanto consulta webservice.
+            $("#input-endereco").val("...");
+            $("#input-bairro").val("...");
+            $("#input-cidade").val("...");
+            $("#input-uf").val("...");
+
+            //Consulta o webservice viacep.com.br/
+            $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function (dados) {
+
+                if (!("erro" in dados)) {
+                    //Atualiza os campos com os valores da consulta.
+                    $("#input-endereco").val(dados.logradouro);
+                    $("#input-bairro").val(dados.bairro);
+                    $("#input-cidade").val(dados.localidade);
+                    $("#input-uf").val(dados.uf);
+                } //end if.
+                else {
+                    //CEP pesquisado não foi encontrado.
+                    limpaFormularioCEP();
+                    toastr.warning("CEP não encontrado.");
+                }
+            });
+        } //end if.
+        else {
+            //cep é inválido.
+            limpaFormularioCEP();
+            toastr.warning("Formato de CEP inválido.");
+        }
+    } //end if.
+    else {
+        //cep sem valor, limpa formulário.
+        limpaFormularioCEP();
+    }
+});
+
+//Quando o campo cep perde o foco.
+$("#input-cep-modal").blur(function () {
+
+    //Nova variável "cep" somente com dígitos.
+    var cep = $(this).val().replace(/\D/g, '');
+
+    //Verifica se campo cep possui valor informado.
+    if (cep != "") {
+
+        //Expressão regular para validar o CEP.
+        var validacep = /^[0-9]{8}$/;
+
+        //Valida o formato do CEP.
+        if (validacep.test(cep)) {
+
+            //Preenche os campos com "..." enquanto consulta webservice.
+            $("#input-endereco-modal").val("...");
+            $("#input-bairro-modal").val("...");
+            $("#input-cidade-modal").val("...");
+            $("#input-uf-modal").val("...");
+
+            //Consulta o webservice viacep.com.br/
+            $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function (dados) {
+
+                if (!("erro" in dados)) {
+                    //Atualiza os campos com os valores da consulta.
+                    $("#input-endereco-modal").val(dados.logradouro);
+                    $("#input-bairro-modal").val(dados.bairro);
+                    $("#input-cidade-modal").val(dados.localidade);
+                    $("#input-uf-modal").val(dados.uf);
+                } //end if.
+                else {
+                    //CEP pesquisado não foi encontrado.
+                    limpaFormularioCEPModal();
+                    toastr.warning("CEP não encontrado.");
+                }
+            });
+        } //end if.
+        else {
+            //cep é inválido.
+            limpaFormularioCEPModal();
+            toastr.warning("Formato de CEP inválido.");
+        }
+    } //end if.
+    else {
+        //cep sem valor, limpa formulário.
+        limpaFormularioCEPModal();
+    }
+});
