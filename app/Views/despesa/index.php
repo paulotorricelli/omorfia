@@ -41,7 +41,10 @@
 										<div class="col-sm-12 col-md-6">
 											<label for="input-categoria">Categoria: </label>
 											<select name="categoria" id="input-categoria" class="form-control" required>
-												<option value=""> -- Selecionar -- </option>
+												<option selected disabled> -- Selecionar -- </option>
+												<?php foreach ($categorias as $item) { ?>
+													<option value="<?= $item->id_categoria_despesa ?>"> <?= $item->nome ?> </option>
+												<?php } ?>
 											</select>
 										</div>
 										<div class="col-sm-12 col-md-6">
@@ -117,7 +120,7 @@
 														<td class="align-middle"><?= $item->valor ?></td>
 														<td class="align-middle"><?= $item->id_categoria ?></td>
 														<td class="align-middle"><?= $item->despesa_fixa ?></td>
-														<td class="align-middle"><?= $item->repetir ?></td>
+														<td class="align-middle"><?= $item->repetir ?>x</td>
 														<td class="align-middle"><?= $item->status ?></td>
 														<td class="align-middle"><?= $item->data_despesa ?></td>
 													</tr>
@@ -178,7 +181,9 @@
 								<div class="col-sm-12 col-md-6">
 									<label for="input-categoria-modal">Categoria: </label>
 									<select name="categoria" id="input-categoria-modal" class="form-control" required>
-										<option value=""> -- Selecionar -- </option>
+										<?php foreach ($categorias as $item) { ?>
+											<option value="<?= $item->id_categoria_despesa ?>"> <?= $item->nome ?> </option>
+										<?php } ?>
 									</select>
 								</div>
 								<div class="col-sm-12 col-md-6">
