@@ -34,6 +34,22 @@
                                             <input class="form-control" type="text" id="input-sobrenome" name="sobrenome" placeholder="Digite o sobrenome" required>
                                         </div>
                                     </div>
+
+                                    <div class="form-group row">
+                                        <div class="col-sm-12 col-md-3">
+                                            <label for="input-rg">RG: </label>
+                                            <input class="form-control" type="text" id="input-rg" name="rg" placeholder="Digite o RG" >
+                                        </div>
+                                        <div class="col-sm-12 col-md-3">
+                                            <label for="input-cpf">CPF: </label>
+                                            <input class="form-control" type="text" id="input-cpf" name="cpf" placeholder="Digite o CPF" >
+                                        </div>
+                                        <div class="col-sm-12 col-md-6">
+                                            <label for="input-como-conheceu">Como nos conheceu? </label>
+                                            <input class="form-control" type="text" id="input-como-conheceu" name="como-conheceu" placeholder="Digite como nos conheceu">
+                                        </div>
+                                    </div>
+
                                     <div class="form-group row">
                                         <div class="col-sm-12 col-md-8">
                                             <label for="input-email">E-mail: *</label>
@@ -52,6 +68,54 @@
                                         <div class="col-sm-12 col-md-6">
                                             <label for="input-celular">Celular: *</label>
                                             <input class="form-control" type="text" id="input-celular" name="celular" placeholder="11900000000" required>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row form-group">
+                                        <div class="col-sm-12 col-md-4">
+                                            <label for="input-instagram">Instagram: </label>
+                                            <input class="form-control" type="text" id="input-instagram" name="instagram">
+                                        </div>
+                                        <div class="col-sm-12 col-md-4">
+                                            <label for="input-facebook">Facebook: </label>
+                                            <input class="form-control" type="text" id="input-facebook" name="facebook">
+                                        </div>
+                                        <div class="col-sm-12 col-md-4">
+                                            <label for="input-hobby">Hobby: </label>
+                                            <input class="form-control" type="text" id="input-hobby" name="hobby">
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row form-group">
+                                        <div class="col-sm-12 col-md-3">
+                                            <label for="input-cep">CEP: </label>
+                                            <input class="form-control" type="text" id="input-cep" name="cep">
+                                        </div>
+                                        <div class="col-sm-12 col-md-6">
+                                            <label for="input-endereco">Endereço: </label>
+                                            <input class="form-control" type="text" id="input-endereco" name="endereco">
+                                        </div>
+                                        <div class="col-sm-12 col-md-3">
+                                            <label for="input-numero">Número: </label>
+                                            <input class="form-control" type="text" id="input-numero" name="numero">
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col-sm-12 col-md-3">
+                                            <label for="input-complemento">Complemento: </label>
+                                            <input class="form-control" type="text" id="input-complemento" name="complemento">
+                                        </div>
+                                        <div class="col-sm-12 col-md-4">
+                                            <label for="input-bairro">Bairro: </label>
+                                            <input class="form-control" type="text" id="input-bairro" name="bairro">
+                                        </div>
+                                        <div class="col-sm-12 col-md-4">
+                                            <label for="input-cidade">Cidade: </label>
+                                            <input class="form-control" type="text" id="input-cidade" name="cidade">
+                                        </div>
+                                        <div class="col-sm-12 col-md-1">
+                                            <label for="input-uf">UF: </label>
+                                            <input class="form-control" type="text" id="input-uf" name="uf">
                                         </div>
                                     </div>
                                     <div class="form-group row justify-content-end">
@@ -154,6 +218,22 @@
                                     <input class="form-control" type="text" id="input-sobrenome-modal" name="sobrenome" placeholder="Digite o sobrenome" required>
                                 </div>
                             </div>
+
+                            <div class="form-group row">
+                                <div class="col-sm-12 col-md-3">
+                                    <label for="input-rg-modal">RG:</label>
+                                    <input class="form-control" type="text" id="input-rg-modal" name="rg" placeholder="Digite o RG">
+                                </div>
+                                <div class="col-sm-12 col-md-3">
+                                    <label for="input-cpf-modal">CPF:</label>
+                                    <input class="form-control" type="text" id="input-cpf-modal" name="cpf" placeholder="Digite o CPF">
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <label for="input-como-conheceu-modal">Como nos conheceu? </label>
+                                    <input class="form-control" type="text" id="input-como-conheceu-modal" name="como-conheceu" placeholder="Digite como nos conheceu">
+                                </div>
+                            </div>
+
                             <div class="form-group row">
                                 <div class="col-sm-12 col-md-8">
                                     <label for="input-email-modal">E-mail: *</label>
@@ -174,7 +254,54 @@
                                     <input class="form-control" type="text" id="input-celular-modal" name="celular" placeholder="(DDD) 90000-0000">
                                 </div>
                             </div>
-
+                            <hr>
+                            <div class="row form-group">
+                                <div class="col-sm-12 col-md-4">
+                                    <label for="input-instagram-modal">Instagram: </label>
+                                    <input class="form-control" type="text" id="input-instagram-modal" name="instagram">
+                                </div>
+                                <div class="col-sm-12 col-md-4">
+                                    <label for="input-facebook-modal">Facebook: </label>
+                                    <input class="form-control" type="text" id="input-facebook-modal" name="facebook">
+                                </div>
+                                <div class="col-sm-12 col-md-4">
+                                    <label for="input-hobby-modal">Hobby: </label>
+                                    <input class="form-control" type="text" id="input-hobby-modal" name="hobby">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row form-group">
+                                <div class="col-sm-12 col-md-3">
+                                    <label for="input-cep-modal">CEP: </label>
+                                    <input class="form-control" type="text" id="input-cep-modal" name="cep">
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <label for="input-endereco-modal">Endereço: </label>
+                                    <input class="form-control" type="text" id="input-endereco-modal" name="endereco">
+                                </div>
+                                <div class="col-sm-12 col-md-3">
+                                    <label for="input-numero-modal">Número: </label>
+                                    <input class="form-control" type="text" id="input-numero-modal" name="numero">
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-sm-12 col-md-3">
+                                    <label for="input-complemento-modal">Complemento: </label>
+                                    <input class="form-control" type="text" id="input-complemento-modal" name="complemento">
+                                </div>
+                                <div class="col-sm-12 col-md-4">
+                                    <label for="input-bairro-modal">Bairro: </label>
+                                    <input class="form-control" type="text" id="input-bairro-modal" name="bairro">
+                                </div>
+                                <div class="col-sm-12 col-md-4">
+                                    <label for="input-cidade-modal">Cidade: </label>
+                                    <input class="form-control" type="text" id="input-cidade-modal" name="cidade">
+                                </div>
+                                <div class="col-sm-12 col-md-1">
+                                    <label for="input-uf-modal">UF: </label>
+                                    <input class="form-control" type="text" id="input-uf-modal" name="uf">
+                                </div>
+                            </div>                    
                             <div class="modal-footer justify-content-between">
                                 <div class="form-group">               
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
