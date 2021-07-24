@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="robots" content="noindex">
 
-	<title>Whoops!</title>
+	<title>Ooops!</title>
 
 	<style type="text/css">
 		<?= preg_replace('#[\r\n\t ]+#', ' ', file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . 'debug.css')) ?>
@@ -14,9 +14,9 @@
 
 	<div class="container text-center">
 
-		<h1 class="headline">Whoops!</h1>
+		<h1 class="headline">Ooops!</h1>
 
-		<p class="lead">We seem to have hit a snag. Please try again later...</p>
+		<p class="lead">Algo não saiu como esperado. Por favor, tente mais tarde...</p>
 
 	</div>
 
