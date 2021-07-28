@@ -3,12 +3,12 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row justify-content-end">
-                    <div class="col-sm-12 col-md-10 col-lg-8">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
                         <div class="card collapsed-card card-success card-outline animate__animated animate__fadeInRight">
                             <div class="card-header">
                                 <div class="row">
                                     <div class="col-sm-10">
-                                        <h3 class="card-title"><i class="fas fa-plus-circle"></i> Registrar novo cliente </h3>
+                                        <h3 class="card-title"><i class="fas fa-plus-circle"></i> Registrar novo atendimento </h3>
                                     </div>
                                     <div class="col-sm-2 text-right">
                                         <div class="card-tools">
@@ -25,67 +25,22 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <div class="col-sm-12 col-md-6">
-                                            <label for="input-nome">Nome: *</label>
-                                            <input class="form-control" type="text" id="input-nome" name="nome" placeholder="Digite o nome" required>
-                                        </div>
-                                        <div class="col-sm-12 col-md-6">
-                                            <label for="input-sobrenome">Sobrenome: *</label>
-                                            <input class="form-control" type="text" id="input-sobrenome" name="sobrenome" placeholder="Digite o sobrenome" required>
+                                        <div class="col-sm-12 col-md-12">
+                                            <label for="input-cliente">Cliente: *</label>
+                                            <input class="form-control" type="text" id="input-cliente" name="cliente" placeholder="Digite o nome, CPF ou código" required>
+                                            <input type="hidden" id="input-id-cliente" name="id-cliente">
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <div class="col-sm-12 col-md-3">
-                                            <label for="input-rg">RG: </label>
-                                            <input class="form-control" type="text" id="input-rg" name="rg" placeholder="Digite o RG" >
-                                        </div>
-                                        <div class="col-sm-12 col-md-3">
-                                            <label for="input-cpf">CPF: </label>
-                                            <input class="form-control" type="text" id="input-cpf" name="cpf" placeholder="Digite o CPF" >
-                                        </div>
-                                        <div class="col-sm-12 col-md-6">
-                                            <label for="input-como-conheceu">Como nos conheceu? </label>
-                                            <input class="form-control" type="text" id="input-como-conheceu" name="como-conheceu" placeholder="Digite como nos conheceu">
+                                            <label for="input-procedimento">Procedimento: * </label>
+                                            <input class="form-control" type="text" id="input-procedimento" name="procedimento" placeholder="Digite o RG" >
                                         </div>
                                     </div>
 
-                                    <div class="form-group row">
-                                        <div class="col-sm-12 col-md-8">
-                                            <label for="input-email">E-mail: *</label>
-                                            <input class="form-control" type="text" id="input-email" name="email" placeholder="e-mail@dominio.com.br" required>
-                                        </div>
-                                        <div class="col-sm-12 col-md-4">
-                                            <label for="input-data-nascimento">Data de Nascimento: *</label>
-                                            <input class="form-control" type="date" id="input-data-nascimento" name="data-nascimento" required>
-                                        </div>
-                                    </div>
-                                    <div class="row form-group">
-                                        <div class="col-sm-12 col-md-6">
-                                            <label for="input-telefone">Telefone Fixo: </label>
-                                            <input class="form-control" type="text" id="input-telefone" name="telefone" placeholder="1100000000">
-                                        </div>
-                                        <div class="col-sm-12 col-md-6">
-                                            <label for="input-celular">Celular: *</label>
-                                            <input class="form-control" type="text" id="input-celular" name="celular" placeholder="11900000000" required>
-                                        </div>
-                                    </div>
                                     <hr>
-                                    <div class="row form-group">
-                                        <div class="col-sm-12 col-md-4">
-                                            <label for="input-instagram">Instagram: </label>
-                                            <input class="form-control" type="text" id="input-instagram" name="instagram">
-                                        </div>
-                                        <div class="col-sm-12 col-md-4">
-                                            <label for="input-facebook">Facebook: </label>
-                                            <input class="form-control" type="text" id="input-facebook" name="facebook">
-                                        </div>
-                                        <div class="col-sm-12 col-md-4">
-                                            <label for="input-hobby">Hobby: </label>
-                                            <input class="form-control" type="text" id="input-hobby" name="hobby">
-                                        </div>
-                                    </div>
-                                    <hr>
+
                                     <div class="row form-group">
                                         <div class="col-sm-12 col-md-3">
                                             <label for="input-cep">CEP: </label>
@@ -133,7 +88,7 @@
                     <div class="col-12">
                         <div class="card animate__animated animate__fadeInUp">
                             <div class="card-header">
-                                <h3 class="card-title"><i class="fas fa-list-ul"></i> Lista de clientes</h3>
+                                <h3 class="card-title"><i class="fas fa-list-ul"></i> Atendimentos de hoje, dia <?=date('d/m/Y')?></h3>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -141,12 +96,11 @@
                                         <thead>
                                             <tr>
                                                 <th>Ações</th>
-                                                <th>Nome</th>
-                                                <th>Sobrenome</th>
-                                                <th>Celular</th>
-                                                <th>Telefone Fixo</th>
+                                                <th>Cliente</th>
+                                                <th>Valor</th>
+                                                <th>Forma de Pagamento</th>
                                                 <th>E-mail</th>
-                                                <th>Nascimento</th>
+                                                <th>Total</th>
                                             </tr>
                                         </thead>
                                         <tbody class="text-uppercase">
