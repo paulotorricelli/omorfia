@@ -51,13 +51,17 @@
                                     </div>
 
                                     <div class="form-group row">
-                                        <div class="col-sm-12 col-md-8">
+                                        <div class="col-sm-12 col-md-4">
                                             <label for="input-email">E-mail: *</label>
                                             <input class="form-control" type="text" id="input-email" name="email" placeholder="e-mail@dominio.com.br" required>
                                         </div>
                                         <div class="col-sm-12 col-md-4">
                                             <label for="input-data-nascimento">Data de Nascimento: *</label>
                                             <input class="form-control" type="date" id="input-data-nascimento" name="data-nascimento" required>
+                                        </div>
+                                        <div class="col-sm-12 col-md-4">
+                                            <label for="input-data-nascimento">Profissão</label>
+                                            <input class="form-control" type="text" id="input-profissao" name="profissao">
                                         </div>
                                     </div>
                                     <div class="row form-group">
@@ -235,13 +239,17 @@
                             </div>
 
                             <div class="form-group row">
-                                <div class="col-sm-12 col-md-8">
+                                <div class="col-sm-12 col-md-4">
                                     <label for="input-email-modal">E-mail: *</label>
                                     <input class="form-control" type="email" id="input-email-modal" name="email" placeholder="e-mail@dominio.com.br" required>
                                 </div>
                                 <div class="col-sm-12 col-md-4">
                                     <label for="input-data-nascimento-modal">Data de Nascimento: *</label>
                                     <input class="form-control" type="date" id="input-data-nascimento-modal" name="data-nascimento" required>
+                                </div>
+                                <div class="col-sm-12 col-md-4">
+                                    <label for="input-data-nascimento">Profissão</label>
+                                    <input class="form-control" type="text" id="input-profissao-modal" name="profissao">
                                 </div>
                             </div>
                             <div class="row form-group">

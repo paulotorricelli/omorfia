@@ -47,6 +47,7 @@ function preencherCamposModal(typeItem, dados) {
       $("#input-como-conheceu-modal").val(dados.como_conheceu);
       $("#input-email-modal").val(dados.email);
       $("#input-data-nascimento-modal").val(dados.data_nascimento);
+      $("#input-profissao-modal").val(dados.profissao);
       $("#input-instagram-modal").val(dados.instagram);
       $("#input-facebook-modal").val(dados.facebook);
       $("#input-hobby-modal").val(dados.hobby);

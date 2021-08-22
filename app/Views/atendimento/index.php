@@ -41,41 +41,9 @@
 
                                     <hr>
 
-                                    <div class="row form-group">
-                                        <div class="col-sm-12 col-md-3">
-                                            <label for="input-cep">CEP: </label>
-                                            <input class="form-control" type="text" id="input-cep" name="cep">
-                                        </div>
-                                        <div class="col-sm-12 col-md-6">
-                                            <label for="input-endereco">Endereço: </label>
-                                            <input class="form-control" type="text" id="input-endereco" name="endereco">
-                                        </div>
-                                        <div class="col-sm-12 col-md-3">
-                                            <label for="input-numero">Número: </label>
-                                            <input class="form-control" type="text" id="input-numero" name="numero">
-                                        </div>
-                                    </div>
-                                    <div class="row form-group">
-                                        <div class="col-sm-12 col-md-3">
-                                            <label for="input-complemento">Complemento: </label>
-                                            <input class="form-control" type="text" id="input-complemento" name="complemento">
-                                        </div>
-                                        <div class="col-sm-12 col-md-4">
-                                            <label for="input-bairro">Bairro: </label>
-                                            <input class="form-control" type="text" id="input-bairro" name="bairro">
-                                        </div>
-                                        <div class="col-sm-12 col-md-4">
-                                            <label for="input-cidade">Cidade: </label>
-                                            <input class="form-control" type="text" id="input-cidade" name="cidade">
-                                        </div>
-                                        <div class="col-sm-12 col-md-1">
-                                            <label for="input-uf">UF: </label>
-                                            <input class="form-control" type="text" id="input-uf" name="uf">
-                                        </div>
-                                    </div>
                                     <div class="form-group row justify-content-end">
                                         <div class="col-sm-12 col-md-4">
-                                            <button type="submit" class="btn btn-block btn-success btn-submit"> Registrar <i class="fas fa-save"></i>
+                                            <button type="submit" class="btn btn-block btn-success btn-submit disabled"> Registrar <i class="fas fa-save"></i>
                                             </button>
                                         </div>
                                     </div>
@@ -92,7 +60,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table table-striped table-hover table-sm text-center table-management">
+                                    <!--<table class="table table-striped table-hover table-sm text-center table-management">
                                         <thead>
                                             <tr>
                                                 <th>Ações</th>
@@ -128,7 +96,7 @@
                                                     <td colspan="7">Nenhum cliente registrado</td>
                                                 </tr>
                                             <?php } ?>
-                                    </table>
+                                    </table>-->
                                 </div>
                             </div>
                         </div>

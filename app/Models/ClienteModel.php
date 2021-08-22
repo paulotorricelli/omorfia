@@ -19,6 +19,7 @@ class ClienteModel extends Model
         'rg',
         'cpf',
         'email', 
+        'profissao', 
         'instagram',
         'facebook',
         'hobby',
