@@ -111,4 +111,10 @@ class Cliente extends BaseController
 			echo json_encode($cliente);
 		}
 	}
+
+	public function busca(){
+		$busca = $this->request->getVar('busca');
+		$clientes =  $this->cliente->buscaCliente($busca);
+		echo json_encode($clientes);
+	}
 }

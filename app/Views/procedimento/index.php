@@ -124,8 +124,8 @@
             </button>
           </div>
           <div class="modal-body">
-            <form id="form-edit-procedimento" data-id="procedimento/cadastrar">
-              <input type="hidden" value="" id="input-id" name="id">
+            <form id="form-edit-procedimento" data-id="procedimento/atualizar">
+              <input type="hidden" value="" id="input-id-modal" name="id">
               <div class="row">
                 <div class="col-sm-12">
                   <p>(*) Campos obrigatórios.</p>
@@ -157,7 +157,7 @@
               </div>
               <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary">Salvar alterações <i class="fas fa-save"></i></button>
+                <button type="button" class="btn btn-primary btn-submit-update">Salvar alterações <i class="fas fa-save"></i></button>
               </div>
             </form>
           </div>

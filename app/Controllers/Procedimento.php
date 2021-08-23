@@ -59,11 +59,11 @@ class Procedimento extends BaseController
 	public function atualizar()
 	{
 		if ($this->request->getPost()) {
-			$id_procedimento = $this->request->getVar('id_procedimento');
+			$id_procedimento = $this->request->getVar('id');
 			$data = [
 				'nome' => $this->request->getVar('nome'),
 				'descricao'  => $this->request->getVar('descricao'),
-				'valor_venda'  => $this->request->getVar('valor-venda'),
+				'valor'  => $this->request->getVar('valor-venda'),
 				'data_modificacao'  => date('Y-m-d H:i:s'),
 			];
 			$this->procedimento->update($id_procedimento, $data);
@@ -93,4 +93,11 @@ class Procedimento extends BaseController
 			echo true;
 		}
 	}
+
+	public function busca(){
+		$busca = $this->request->getVar('busca');
+		$procedimentos =  $this->procedimento->buscaProcedimento($busca);
+		echo json_encode($procedimentos);
+	}
+
 }

@@ -25,7 +25,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <div class="col-sm-12 col-md-12">
+                                        <div class="col-sm-12 col-md-6">
                                             <label for="input-cliente">Cliente: *</label>
                                             <input class="form-control" type="text" id="input-cliente" name="cliente" placeholder="Digite o nome, CPF ou código" required>
                                             <input type="hidden" id="input-id-cliente" name="id-cliente">
@@ -33,9 +33,10 @@
                                     </div>
 
                                     <div class="form-group row">
-                                        <div class="col-sm-12 col-md-3">
+                                        <div class="col-sm-12 col-md-6">
                                             <label for="input-procedimento">Procedimento: * </label>
-                                            <input class="form-control" type="text" id="input-procedimento" name="procedimento" placeholder="Digite o RG" >
+                                            <input class="form-control" type="text" id="input-procedimento" name="procedimento" placeholder="Digite o Procedimento">
+                                            <input type="hidden" id="input-id-procedimento" name="id-procedimento">
                                         </div>
                                     </div>
 

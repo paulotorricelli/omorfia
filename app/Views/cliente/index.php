@@ -161,6 +161,9 @@
                                                             <a href="#" title="Editar" class="btn btn-outline-primary btn-sm btn-modal" id="<?= $item->id_cliente ?>" data-id="cliente">
                                                                 <i class="fas fa-edit"></i>
                                                             </a>
+                                                            <a href="#" title="Prontuário" class="btn btn-outline-secondary btn-sm" id="<?= $item->id_cliente ?>" data-id="cliente">
+                                                                <i class="fas fa-user"></i>
+                                                            </a>
                                                             <a href="https://api.whatsapp.com/send?phone=55<?=$item->celular?>" title="WhatsApp" target="_blank" class="btn btn-outline-success btn-sm">
                                                                 <i class="fab fa-whatsapp"></i>
                                                             </a>

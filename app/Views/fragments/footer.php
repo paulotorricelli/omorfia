@@ -17,11 +17,13 @@
                 <script src="<?= base_url() ?>/resources/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script><!-- bs-custom-file-input -->
                 <script src="<?= base_url() ?>/resources/dist/js/adminlte.min.js"></script><!-- AdminLTE App -->
                 <script src="<?= base_url() ?>/resources/plugins/datatables-editor/table-edits.js"></script>
-                <script src="<?= base_url() ?>/resources/plugins/tagsinput/bootstrap-tagsinput.js"></script> 
+                <script src="<?= base_url() ?>/resources/plugins/tagsinput/bootstrap-tagsinput.js"></script>
+                <script src="<?= base_url() ?>/resources/plugins/jquery-autocomplete/jquery.auto-complete.js"></script> 
                 <!-- fim scripts bibliotecas -->     
                 <script src="<?= base_url() ?>/resources/dist/js/processo/validacao.js"></script>
                 <script src="<?= base_url() ?>/resources/dist/js/common/index.js"></script> 
                 <script src="<?= base_url() ?>/resources/dist/js/gerenciamento/<?=$script?>/index.js"></script>
+                <script src="<?= base_url() ?>/resources/dist/js/gerenciamento/atendimento/index.js"></script>
             </footer>
         </div>
     </body>
