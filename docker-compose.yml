@@ -1,0 +1,29 @@
+version: '3'
+services:
+    web_omorfia:
+        image: chronos/omorfia
+        container_name: omorfia
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - "8080:80"
+        volumes:
+            - ./src/:/var/www/html
+            - omorfia_cache:/var/www/html/writable/cache:rw
+        depends_on:
+            - db_omorfia
+    db_omorfia:
+        image: mariadb:10.1.48
+        container_name: mariadb
+        environment:
+            MYSQL_ROOT_PASSWORD: 'secret'
+            MYSQL_USER: 'chronos'
+            MYSQL_PASSWORD: 'ecNz8efd_eqi59!C'
+            MYSQL_DATABASE: 'omorfia'
+        ports:
+            - 3306:3306
+
+volumes: 
+  omorfia_cache:
+    driver: local
